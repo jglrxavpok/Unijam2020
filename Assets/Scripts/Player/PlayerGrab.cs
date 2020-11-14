@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using System;
+using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +20,8 @@ public class PlayerGrab : MonoBehaviour
 
     private Rigidbody2D rb;
     private PlayerMovement _movement;
+    private GameObject pnjGrab = null;
+    private NPCMovement _npcMovement = null;
 
     public bool IsGrab {get; private set;}
     public GameObject PnjGrabbed {get; private set;}
@@ -30,6 +33,12 @@ public class PlayerGrab : MonoBehaviour
 
     private void Start () {
         InputManager.Input.Spider.Grab.performed += OnGrab;
+    }
+
+    void Update() {
+        if (pnjGrab) {
+            rb.velocity = new Vector2(_npcMovement.getSpeed(), 0);
+        }
     }
 
     private void OnDestroy () {
@@ -50,6 +59,8 @@ public class PlayerGrab : MonoBehaviour
     }
 
     private void Grab (GameObject pnj) {
+        pnjGrab = pnj;
+        _npcMovement = pnjGrab.GetComponent<NPCMovement>();
         _movement.KeepWeb();
         rb.isKinematic = true;
         rb.velocity = Vector3.zero;
@@ -78,7 +89,10 @@ public class PlayerGrab : MonoBehaviour
         InputManager.Input.Spider.Slide.Disable();
     }
 
-    public void UnGrab () {
+
+    private void UnGrab () {
+        _npcMovement = null;
+        pnjGrab = null;
         _movement.DontKeepWeb();
         rb.isKinematic = false;
         rb.velocity = Vector2.zero;
