@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerMovement))]
 public class PlayerGrab : MonoBehaviour
 {
     public float grabOffsetPos = 0;
@@ -18,10 +18,11 @@ public class PlayerGrab : MonoBehaviour
     private NPC.Cursor npcCursor;
 
     private Rigidbody2D rb;
+    private PlayerMovement _movement;
 
     private void Awake () {
         rb = GetComponent<Rigidbody2D>();
-        
+        _movement = GetComponent<PlayerMovement>();
     }
 
     private void Start () {
@@ -36,12 +37,12 @@ public class PlayerGrab : MonoBehaviour
         if(ctx.ReadValueAsButton()) {
             GameObject pnjSelected = pnjSelection.SelectedPnj;
             if(!pnjSelected) return;
-            
+
+            Grab(pnjSelected);
+
             InputManager.Input.Spider.Web.Disable();
             InputManager.Input.Spider.Swing.Disable();
             InputManager.Input.Spider.Slide.Disable();
-
-            Grab(pnjSelected);
         }else{
             UnGrab();
             
@@ -52,6 +53,7 @@ public class PlayerGrab : MonoBehaviour
     }
 
     private void Grab (GameObject pnj) {
+        _movement.KeepWeb();
         rb.isKinematic = true;
         rb.velocity = Vector3.zero;
         animator.SetBool("IsGrab", true);
@@ -69,9 +71,11 @@ public class PlayerGrab : MonoBehaviour
     }
 
     private void UnGrab () {
+        _movement.DontKeepWeb();
         rb.isKinematic = false;
+        rb.velocity = Vector2.zero;
         animator.SetBool("IsGrab", false);
-        sprite.flipY = false;   
+        sprite.flipY = false;
         npcCursor?.ShowNPC(null);
     }
 }

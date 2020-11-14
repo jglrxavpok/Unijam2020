@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NPC;
 using UnityEngine;
 
 //Info : bien pensez à ce que pnjSelection ne détecte QUE les pnj grâce à la configuration des matrices de layer
@@ -13,7 +14,9 @@ public class PnjSelection : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
-        pnjs.Add(col.gameObject);
+        if (col.GetComponent<PasserbyDescription>()) {
+            pnjs.Add(col.gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D col) {
