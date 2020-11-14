@@ -121,18 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!95 &8375375 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1598732647522293645, guid: fe0f7e76214748a45b188f7129e3728f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1219923213}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &191328644 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 8657297017798799619, guid: fe0f7e76214748a45b188f7129e3728f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1219923213}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &576465727
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,18 +485,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1219923215, guid: fe0f7e76214748a45b188f7129e3728f, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 8375375}
-    - target: {fileID: 1219923215, guid: fe0f7e76214748a45b188f7129e3728f, type: 3}
-      propertyPath: sprite
-      value: 
-      objectReference: {fileID: 191328644}
-    - target: {fileID: 1219923215, guid: fe0f7e76214748a45b188f7129e3728f, type: 3}
-      propertyPath: grabOffsetPos
-      value: 0.4
-      objectReference: {fileID: 0}
     - target: {fileID: 8657297015961290251, guid: fe0f7e76214748a45b188f7129e3728f,
         type: 3}
       propertyPath: m_Name
