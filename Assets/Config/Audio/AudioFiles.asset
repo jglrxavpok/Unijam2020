@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639add3d84eaf6147bee464be5bb4f33, type: 3}
+  m_Name: AudioFiles
+  m_EditorClassIdentifier: 
+  peopleBackground: {fileID: 8300000, guid: eae0e6f826dbd6a46a7d5b3fc8daa383, type: 3}
+  humBackground: {fileID: 8300000, guid: 36a8341a5bddb56458ec517685f4c930, type: 3}
+  trainMovement: {fileID: 8300000, guid: d37ef2a01a510244d86b97f0f957fcc8, type: 3}
+  trainOpenDoor: {fileID: 8300000, guid: 398bfe3fe4657724c988c1fbe750e98c, type: 3}
+  trainCloseDoor: {fileID: 8300000, guid: c737915571124b64ea4b5b6e61aab062, type: 3}
+  trainCloseDoorWarning: {fileID: 8300000, guid: 9c2c6b98230d8214db40967703e81f24,
+    type: 3}
+  spiderBite: {fileID: 8300000, guid: 59b538a4f9e4007429c60b1caf1b4a9e, type: 3}
+  spiderGrab: {fileID: 8300000, guid: b5b26d614cea9414eb86daf539bfa02c, type: 3}
+  spiderUngrab: {fileID: 8300000, guid: b56a471a9c4232442af0f1c180cd8000, type: 3}
+  buttonClick: {fileID: 8300000, guid: 3b325c14ad5e3684fbd9d74e8f57ce23, type: 3}
+  spiderSwitchEmotion: {fileID: 8300000, guid: 80fe6d6820d54a44aa79f7690e1c4ab4, type: 3}
+  mainMenuMusic: {fileID: 8300000, guid: 900475b384f33aa4c89578ae7688f6cf, type: 3}
+  levelMusic: {fileID: 8300000, guid: 9d5f32baa8feb734f94a09b93640403f, type: 3}
+  jtMusic: {fileID: 8300000, guid: be8b7a9c099d420429fa7d05c9297398, type: 3}
