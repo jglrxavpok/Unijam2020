@@ -10,11 +10,11 @@ public class AudioBox : MonoBehaviour
     private AudioFiles audioFiles;
     [SerializeField]
     private AudioSource soundSource;
-    [SerializeField]
-    private AudioSource musicSource;
 
     public float soundGlobalVolume = 1f;
     public float musicGlobalVolume = 1f;
+
+    private List<AudioSource> musicSources;
 
     private void Awake () {
         if(Instance){
@@ -23,28 +23,50 @@ public class AudioBox : MonoBehaviour
         }
 
         Instance = this;
+
+        musicSources = new List<AudioSource>();
     }
 
     private void OnDestroy () {
         if(Instance == this) Instance = null;
     }
 
-    public void PlaySound (SoundFile soundFile, float volume = 1f){
-        soundSource.PlayOneShot(audioFiles.GetSoundClip(soundFile), volume * soundGlobalVolume);
+    public void PlaySoundOneShot (SoundOneShot sound, float volume = 1f){
+        soundSource.PlayOneShot(audioFiles.GetOneShotClip(sound), volume * soundGlobalVolume);
     }
 
-    public void PlayMusic (MusicFile musicFile, float volume = 1f, bool loop = true){
-        if(musicSource.isPlaying) musicSource.Stop();
+    public void PlaySoundLoop (SoundLoop sound, float volume = 1f, bool loop = true){
+        AudioClip clip = audioFiles.GetLoopClip(sound);
 
+        foreach(AudioSource source in musicSources){
+            if(source.clip == clip) return;
+        }
+
+        AudioSource musicSource = gameObject.AddComponent<AudioSource>();
+
+        musicSource.playOnAwake = false;
         musicSource.volume = volume = musicGlobalVolume;
         musicSource.loop = loop;
-        musicSource.clip = audioFiles.GetMusicClip(musicFile);
+        musicSource.clip = clip;
         musicSource.Play();
+
+        musicSources.Add(musicSource);
     }
 
-    public void StopMusic (){
-        if(!musicSource.isPlaying) return;
+    public void StopSoundLoop (SoundLoop sound){
+        AudioClip clip = audioFiles.GetLoopClip(sound);
+        AudioSource findSource = null;
 
-        musicSource.Stop();
+        foreach(AudioSource source in musicSources){
+            if(source.clip == clip){
+                findSource = source;
+                break;
+            }
+        }
+
+        if(findSource){
+            findSource.Stop();
+            musicSources.Remove(findSource);
+        }
     }
 }

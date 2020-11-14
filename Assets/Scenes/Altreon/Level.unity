@@ -1893,6 +1893,7 @@ GameObject:
   - component: {fileID: 1268426107}
   - component: {fileID: 1268426106}
   - component: {fileID: 1268426109}
+  - component: {fileID: 1268426110}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1981,6 +1982,19 @@ MonoBehaviour:
   speed: 1
   minX: -9
   maxX: 9
+--- !u!114 &1268426110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268426105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca46a92b312fcff419863e5cab92215f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicToPlay: 050000000100000000000000
 --- !u!1 &1285330617
 GameObject:
   m_ObjectHideFlags: 0
@@ -3549,6 +3563,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 688234165859806249, guid: 157080e8e2439714498cc0494e24d87b,
+        type: 3}
+      propertyPath: soundGlobalVolume
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 688234165859806249, guid: 157080e8e2439714498cc0494e24d87b,
+        type: 3}
+      propertyPath: musicGlobalVolume
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 688234165859806250, guid: 157080e8e2439714498cc0494e24d87b,
         type: 3}
       propertyPath: m_LocalPosition.x
