@@ -9,19 +9,22 @@ public class PlayerGrab : MonoBehaviour
     public float grabOffsetPos = 0;
 
     [SerializeField]
-    private PnjSelection pnjSelection;
+    private PnjSelection pnjSelection = null;
     [SerializeField]
-    private Animator animator;
+    private Animator animator = null;
     [SerializeField]
-    private SpriteRenderer sprite;
+    private SpriteRenderer sprite = null;
 
     [SerializeField]
-    private NPC.Cursor npcCursor;
+    private NPC.Cursor npcCursor = null;
 
     private Rigidbody2D rb;
     private PlayerMovement _movement;
     private GameObject pnjGrab = null;
     private NPCMovement _npcMovement = null;
+
+    public bool IsGrab {get; private set;}
+    public GameObject PnjGrabbed {get; private set;}
 
     private void Awake () {
         rb = GetComponent<Rigidbody2D>();
@@ -48,16 +51,10 @@ public class PlayerGrab : MonoBehaviour
             if(!pnjSelected) return;
 
             Grab(pnjSelected);
-
-            InputManager.Input.Spider.Web.Disable();
-            InputManager.Input.Spider.Swing.Disable();
-            InputManager.Input.Spider.Slide.Disable();
         }else{
+            if(!IsGrab) return;
+
             UnGrab();
-            
-            InputManager.Input.Spider.Web.Enable();
-            InputManager.Input.Spider.Swing.Enable();
-            InputManager.Input.Spider.Slide.Enable();
         }
     }
 
@@ -80,8 +77,18 @@ public class PlayerGrab : MonoBehaviour
             transform.LookAt(Vector2.up);
         }
 
+        transform.parent = pnj.transform;
+
         npcCursor?.ShowNPC(pnj);
+
+        PnjGrabbed = pnj;
+        IsGrab = true;
+
+        InputManager.Input.Spider.Web.Disable();
+        InputManager.Input.Spider.Swing.Disable();
+        InputManager.Input.Spider.Slide.Disable();
     }
+
 
     private void UnGrab () {
         _npcMovement = null;
@@ -91,7 +98,16 @@ public class PlayerGrab : MonoBehaviour
         rb.velocity = Vector2.zero;
         animator.SetBool("IsGrab", false);
         _movement.enabled = true;
+
+        transform.parent = null;
         
         npcCursor?.ShowNPC(null);
+
+        PnjGrabbed = null;
+        IsGrab = false;
+
+        InputManager.Input.Spider.Web.Enable();
+        InputManager.Input.Spider.Swing.Enable();
+        InputManager.Input.Spider.Slide.Enable();
     }
 }
