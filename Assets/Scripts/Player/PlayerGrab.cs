@@ -66,6 +66,8 @@ public class PlayerGrab : MonoBehaviour
             transform.LookAt(Vector2.up);
         }
 
+        transform.parent = pnj.transform;
+
         npcCursor?.ShowNPC(pnj);
 
         PnjGrabbed = pnj;
@@ -82,6 +84,8 @@ public class PlayerGrab : MonoBehaviour
         rb.velocity = Vector2.zero;
         animator.SetBool("IsGrab", false);
         _movement.enabled = true;
+
+        transform.parent = null;
         
         npcCursor?.ShowNPC(null);
 
