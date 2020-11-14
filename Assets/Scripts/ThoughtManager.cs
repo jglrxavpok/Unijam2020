@@ -8,28 +8,28 @@ public class ThoughtManager : MonoBehaviour
     public ThoughtsDB thoughtsDB;
     private ThoughtsDB.TasteThought tasteThought;
     private ThoughtsDB.Thing thing;
-    private int tastePositivity;
+    private int tastePositivity = 0;
     private ThoughtsDB.IntentionThought intentionThought;
     private ThoughtsDB.Action action;
-    private int intentionPositivity;
+    private int intentionPositivity = 0;
     private ThoughtsDB.JudgementThought judgementThought;
     private ThoughtsDB.Qualificative qualificative;
-    private int judgementPositivity;
+    private int judgementPositivity = 0;
     private ThoughtsDB.DesireThought desireThought;
     private ThoughtsDB.Desire desire;
-    private int desirePositivity;
-    private int positivity;
+    private int desirePositivity = 0;
+    private int positivity = 0;
     // Start is called before the first frame update
     void Start()
     {
         tasteThought = thoughtsDB.GetRandomTasteThought();
         thing = thoughtsDB.GetRandomThing();
         tastePositivity = tasteThought.positivity * thing.positivity; 
-        print("Taste : " + tasteThought.content + thing.content + ". Score : " + tastePositivity);
+        print("Taste : " + tasteThought.content + thing.content + ". Score : " + tastePositivity); 
         intentionThought = thoughtsDB.GetRandomIntentionThought();
         action = thoughtsDB.GetRandomAction();
         intentionPositivity = intentionThought.positivity * action.positivity;
-        print("Intention : " + intentionThought.content + action.content + ". Score : " + intentionPositivity);
+        print("Intention : " + intentionThought.content + action.content + ". Score : " + intentionPositivity); //TODO : use gender of the npc
         judgementThought = thoughtsDB.GetRandomJudgementThought();
         qualificative = thoughtsDB.GetRandomQualificative();
         judgementPositivity = judgementThought.positivity * qualificative.positivity;
@@ -52,7 +52,7 @@ public class ThoughtManager : MonoBehaviour
         desireThought = thoughtsDB.GetRandomDesireThought();
         desire = thoughtsDB.GetRandomDesire();
         desirePositivity = desireThought.positivity * desire.positivity;
-        print("Desire : " + desireThought.content + desire.content + ". Score : " + desirePositivity);
+        print("Desire : " + desireThought.content + desire.content + ". Score : " + desirePositivity); //TODO : use gender of the npc
         positivity = tastePositivity + intentionPositivity + judgementPositivity + desirePositivity;
         print("Total Positivity : " + positivity.ToString());
     }
