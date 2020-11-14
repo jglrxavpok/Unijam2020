@@ -28,6 +28,7 @@ namespace Player {
         }
         private Rigidbody2D _rigidbody;
         private SpringJoint2D _springJoint;
+        private WebRenderer _webRenderer;
         private float swingInput;
         private float slideInput;
         private bool shouldShootWeb;
@@ -41,8 +42,11 @@ namespace Player {
             _rigidbody = GetComponent<Rigidbody2D>();
             _springJoint = GetComponent<SpringJoint2D>();
 
+            _webRenderer = GetComponentInChildren<WebRenderer>();
+
             // don't show ghost anchor
             ghostAnchor.SetActive(false);
+            AnchorTo(AnchorPoint);
         }
 
         private void OnDestroy() {
@@ -108,9 +112,15 @@ namespace Player {
             // make sure an anchor is possible
             // TODO: shoot projectile instead
             if (ghostAnchor.activeSelf) {
-                anchor.transform.position = ghostAnchor.transform.position;
-                _springJoint.distance = (anchor.transform.position - transform.position).magnitude;
+                _webRenderer.DestroyWeb();
+                AnchorTo(ghostAnchor.transform.position);
             }
+        }
+
+        private void AnchorTo(Vector2 point) {
+            anchor.transform.position = point;
+            _springJoint.distance = (AnchorPoint - Position).magnitude;
+            _webRenderer.CreateWeb(AnchorPoint);
         }
 
         private void OnSwing (InputAction.CallbackContext ctx)  {
