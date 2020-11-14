@@ -18,7 +18,7 @@ namespace NPC {
         }
 
         public void LoadRandom() {
-            var fullName = NpcBuilder.GetRandomName(); 
+            var fullName = NPCBuilder.GetRandomName(); 
             firstName = fullName.Split(' ')[0];
             name = fullName.Split(' ')[1];
             
