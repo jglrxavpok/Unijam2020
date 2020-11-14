@@ -10,5 +10,15 @@ namespace NPC {
         public string FirstName => firstName;
         public string Name => name;
         public string Thought => thought;
+
+        void Start()
+        {
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(firstName))
+            {
+                var fullName = NpcBuilder.GetRandomName();
+                firstName = fullName.Split(' ')[0];
+                name = fullName.Split(' ')[1];
+            }
+        }
     }
 }
