@@ -28,25 +28,32 @@ namespace Player {
         }
         private Rigidbody2D _rigidbody;
         private SpringJoint2D _springJoint;
+        private WebRenderer _webRenderer;
         private float swingInput;
         private float slideInput;
         private bool shouldShootWeb;
+        private bool shouldCutWeb;
         private float shootingAngle;
 
         void Start() {
             InputManager.Input.Spider.Web.started += OnShootWeb;
+            InputManager.Input.Spider.Web.canceled += OnCutWeb;
             InputManager.Input.Spider.Swing.performed += OnSwing;
             InputManager.Input.Spider.Slide.performed += OnSlide;
             
             _rigidbody = GetComponent<Rigidbody2D>();
             _springJoint = GetComponent<SpringJoint2D>();
 
+            _webRenderer = GetComponentInChildren<WebRenderer>();
+
             // don't show ghost anchor
             ghostAnchor.SetActive(false);
+            AnchorTo(AnchorPoint);
         }
 
         private void OnDestroy() {
             InputManager.Input.Spider.Web.started -= OnShootWeb;
+            InputManager.Input.Spider.Web.canceled -= OnCutWeb;
             InputManager.Input.Spider.Swing.performed -= OnSwing;
             InputManager.Input.Spider.Slide.performed -= OnSlide;
         }
@@ -56,6 +63,11 @@ namespace Player {
             if (shouldShootWeb) {
                 ShootWeb();
                 shouldShootWeb = false;
+            }
+
+            if (shouldCutWeb) {
+                CutWeb();
+                shouldCutWeb = false;
             }
 
             // swing spider
@@ -108,9 +120,26 @@ namespace Player {
             // make sure an anchor is possible
             // TODO: shoot projectile instead
             if (ghostAnchor.activeSelf) {
-                anchor.transform.position = ghostAnchor.transform.position;
-                _springJoint.distance = (anchor.transform.position - transform.position).magnitude;
+                _webRenderer.DestroyWeb();
+                AnchorTo(ghostAnchor.transform.position);
             }
+        }
+
+        private void CutWeb() {
+            _webRenderer.DestroyWeb();
+            _webRenderer.enabled = false;
+            _springJoint.enabled = false;
+            anchor.SetActive(false);
+        }
+
+        private void AnchorTo(Vector2 point) {
+            anchor.SetActive(true);
+            _springJoint.enabled = true;
+            _webRenderer.enabled = true;
+
+            anchor.transform.position = point;
+            _springJoint.distance = (AnchorPoint - Position).magnitude;
+            _webRenderer.CreateWeb(AnchorPoint);
         }
 
         private void OnSwing (InputAction.CallbackContext ctx)  {
@@ -125,6 +154,10 @@ namespace Player {
         
         private void OnShootWeb(InputAction.CallbackContext ctx) {
             shouldShootWeb = true;
+        }
+        
+        private void OnCutWeb(InputAction.CallbackContext ctx) {
+            shouldCutWeb = true;
         }
     }
 }
