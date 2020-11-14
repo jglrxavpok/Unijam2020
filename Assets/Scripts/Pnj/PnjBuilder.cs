@@ -26,7 +26,8 @@ public class PnjBuilder : MonoBehaviour
         _firstNames = textFile.text.Split('\n');
         textFile = Resources.Load<TextAsset>("Names/LastNames");
         _lastNames = textFile.text.Split('\n');
-        //TODO: les pensées (by jglrxavpok)
+        textFile = Resources.Load<TextAsset>("");//TODO: import thoughts
+        
     }
 
     // Start is called before the first frame update
@@ -50,9 +51,10 @@ public class PnjBuilder : MonoBehaviour
         var firstName = _firstNames[firstNameIndex];
         var lastName = _lastNames[Random.Range(0, _lastNames.Length)];
         // Debug.Log($"Creating {firstName} {lastName}");
-        var ret = new GameObject(firstName + '_' + lastName);
+        var ret = new GameObject(firstName + ' ' + lastName);
         var pnj = ret.AddComponent<Pnj>();
         pnj.gender = (firstNameIndex<_firstNames.Length/2)?'M':'F'; //Première moitié de noms masculins
+        
         return ret;
     }
 }
