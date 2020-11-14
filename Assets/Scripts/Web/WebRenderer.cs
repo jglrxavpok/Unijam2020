@@ -34,10 +34,12 @@ public class WebRenderer : MonoBehaviour
         UpdateLine();
 
         show = true;
+        line.enabled = true;
     }
 
     public void DestroyWeb() {
         show = false;
+        line.enabled = false;
     }
 
     private void UpdateLine () {

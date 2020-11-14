@@ -32,10 +32,12 @@ namespace Player {
         private float swingInput;
         private float slideInput;
         private bool shouldShootWeb;
+        private bool shouldCutWeb;
         private float shootingAngle;
 
         void Start() {
             InputManager.Input.Spider.Web.started += OnShootWeb;
+            InputManager.Input.Spider.Web.canceled += OnCutWeb;
             InputManager.Input.Spider.Swing.performed += OnSwing;
             InputManager.Input.Spider.Slide.performed += OnSlide;
             
@@ -51,6 +53,7 @@ namespace Player {
 
         private void OnDestroy() {
             InputManager.Input.Spider.Web.started -= OnShootWeb;
+            InputManager.Input.Spider.Web.canceled -= OnCutWeb;
             InputManager.Input.Spider.Swing.performed -= OnSwing;
             InputManager.Input.Spider.Slide.performed -= OnSlide;
         }
@@ -60,6 +63,11 @@ namespace Player {
             if (shouldShootWeb) {
                 ShootWeb();
                 shouldShootWeb = false;
+            }
+
+            if (shouldCutWeb) {
+                CutWeb();
+                shouldCutWeb = false;
             }
 
             // swing spider
@@ -117,7 +125,18 @@ namespace Player {
             }
         }
 
+        private void CutWeb() {
+            _webRenderer.DestroyWeb();
+            _webRenderer.enabled = false;
+            _springJoint.enabled = false;
+            anchor.SetActive(false);
+        }
+
         private void AnchorTo(Vector2 point) {
+            anchor.SetActive(true);
+            _springJoint.enabled = true;
+            _webRenderer.enabled = true;
+
             anchor.transform.position = point;
             _springJoint.distance = (AnchorPoint - Position).magnitude;
             _webRenderer.CreateWeb(AnchorPoint);
@@ -135,6 +154,10 @@ namespace Player {
         
         private void OnShootWeb(InputAction.CallbackContext ctx) {
             shouldShootWeb = true;
+        }
+        
+        private void OnCutWeb(InputAction.CallbackContext ctx) {
+            shouldCutWeb = true;
         }
     }
 }
