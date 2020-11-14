@@ -58,5 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
-.idea
 
+.idea
+ProjectSettings/ProjectVersion.txt
