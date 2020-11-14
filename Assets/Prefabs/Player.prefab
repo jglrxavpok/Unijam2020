@@ -339,6 +339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pnjSelection: {fileID: 630050255}
+  animator: {fileID: 0}
 --- !u!1 &8657297016122892634
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,8 @@ public class PlayerGrab : MonoBehaviour
 {
     [SerializeField]
     private PnjSelection pnjSelection;
+    [SerializeField]
+    private Animator animator;
 
     private Rigidbody2D rb;
 
@@ -23,7 +25,6 @@ public class PlayerGrab : MonoBehaviour
     }
 
     private void OnGrab (InputAction.CallbackContext ctx)  {
-        Debug.LogWarning("grab");
         if(ctx.ReadValue<float>() == 1){
             GameObject pnjSelected = pnjSelection.SelectedPnj;
             if(!pnjSelected) return;
@@ -45,13 +46,14 @@ public class PlayerGrab : MonoBehaviour
     private void Grab (GameObject pnj) {
         rb.isKinematic = true;
         rb.velocity = Vector3.zero;
+        animator.SetBool("IsGrab", true);
 
         //TODO
     }
 
     private void UnGrab () {
         rb.isKinematic = false;
-
+        animator.SetBool("IsGrab", true);
         //TODO
     }
 }
