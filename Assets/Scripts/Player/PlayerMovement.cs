@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Animations;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Player {
@@ -17,6 +18,7 @@ namespace Player {
         [SerializeField] private GameObject debugArrow;
         [SerializeField] private SpriteRenderer _renderer;
         [SerializeField] private LayerMask webRaycastLayer;
+        [SerializeField] private Animator animator;
 
         // PRIVATE-PRIVATE
         private bool onWeb = true; // TODO: dynamically change
@@ -28,25 +30,34 @@ namespace Player {
         }
         private Rigidbody2D _rigidbody;
         private SpringJoint2D _springJoint;
+        private WebRenderer _webRenderer;
         private float swingInput;
         private float slideInput;
         private bool shouldShootWeb;
+        private bool shouldCutWeb;
         private float shootingAngle;
+        private static readonly int SwingDirection = Animator.StringToHash("SwingDirection");
+        private static readonly int SlideDirection = Animator.StringToHash("SlideDirection");
 
         void Start() {
             InputManager.Input.Spider.Web.started += OnShootWeb;
+            InputManager.Input.Spider.Web.canceled += OnCutWeb;
             InputManager.Input.Spider.Swing.performed += OnSwing;
             InputManager.Input.Spider.Slide.performed += OnSlide;
             
             _rigidbody = GetComponent<Rigidbody2D>();
             _springJoint = GetComponent<SpringJoint2D>();
 
+            _webRenderer = GetComponentInChildren<WebRenderer>();
+
             // don't show ghost anchor
             ghostAnchor.SetActive(false);
+            AnchorTo(AnchorPoint);
         }
 
         private void OnDestroy() {
             InputManager.Input.Spider.Web.started -= OnShootWeb;
+            InputManager.Input.Spider.Web.canceled -= OnCutWeb;
             InputManager.Input.Spider.Swing.performed -= OnSwing;
             InputManager.Input.Spider.Slide.performed -= OnSlide;
         }
@@ -58,6 +69,14 @@ namespace Player {
                 shouldShootWeb = false;
             }
 
+            if (shouldCutWeb) {
+                CutWeb();
+                shouldCutWeb = false;
+            }
+
+            animator.SetFloat(SwingDirection, 0.0f);
+            animator.SetFloat(SlideDirection, 0.0f);
+            
             // swing spider
             if (onWeb) {
                 float horizontalInput = swingInput;
@@ -91,6 +110,9 @@ namespace Player {
                 // rotate player sprite to show angle from anchor
                 float renderAngle = Vector2.SignedAngle(Vector2.up, AnchorPoint - Position);
                 _renderer.transform.rotation = Quaternion.Euler(0, 0, renderAngle);
+                
+                animator.SetFloat(SwingDirection, horizontalInput);
+                animator.SetFloat(SlideDirection, slideInput);
             }
             
             // update ghost anchor position
@@ -108,9 +130,26 @@ namespace Player {
             // make sure an anchor is possible
             // TODO: shoot projectile instead
             if (ghostAnchor.activeSelf) {
-                anchor.transform.position = ghostAnchor.transform.position;
-                _springJoint.distance = (anchor.transform.position - transform.position).magnitude;
+                _webRenderer.DestroyWeb();
+                AnchorTo(ghostAnchor.transform.position);
             }
+        }
+
+        private void CutWeb() {
+            _webRenderer.DestroyWeb();
+            _webRenderer.enabled = false;
+            _springJoint.enabled = false;
+            anchor.SetActive(false);
+        }
+
+        private void AnchorTo(Vector2 point) {
+            anchor.SetActive(true);
+            _springJoint.enabled = true;
+            _webRenderer.enabled = true;
+
+            anchor.transform.position = point;
+            _springJoint.distance = (AnchorPoint - Position).magnitude;
+            _webRenderer.CreateWeb(AnchorPoint);
         }
 
         private void OnSwing (InputAction.CallbackContext ctx)  {
@@ -125,6 +164,10 @@ namespace Player {
         
         private void OnShootWeb(InputAction.CallbackContext ctx) {
             shouldShootWeb = true;
+        }
+        
+        private void OnCutWeb(InputAction.CallbackContext ctx) {
+            shouldCutWeb = true;
         }
     }
 }

@@ -41,6 +41,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Grab"",
+                    ""type"": ""Button"",
+                    ""id"": ""68eaa60e-c0df-4cca-b9e0-2d7681cf38e6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press(behavior=2)""
                 }
             ],
             ""bindings"": [
@@ -197,6 +205,55 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Slide"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c27a2a45-ab54-4138-8482-0ce4e51034b7"",
+                    ""path"": ""<Keyboard>/#(A)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8f2018fc-ee47-44a5-bdca-57cd456c119e"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Debug"",
+            ""id"": ""4e7cdc41-ff56-451d-8eed-171663df8315"",
+            ""actions"": [
+                {
+                    ""name"": ""Mouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""703eaa95-1320-4baf-bc2e-b66182e62126"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a904e6d4-7257-4ed3-88b5-6fe52479d5e1"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -231,6 +288,10 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Spider_Web = m_Spider.FindAction("Web", throwIfNotFound: true);
         m_Spider_Swing = m_Spider.FindAction("Swing", throwIfNotFound: true);
         m_Spider_Slide = m_Spider.FindAction("Slide", throwIfNotFound: true);
+        m_Spider_Grab = m_Spider.FindAction("Grab", throwIfNotFound: true);
+        // Debug
+        m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
+        m_Debug_Mouse = m_Debug.FindAction("Mouse", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -283,6 +344,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Spider_Web;
     private readonly InputAction m_Spider_Swing;
     private readonly InputAction m_Spider_Slide;
+    private readonly InputAction m_Spider_Grab;
     public struct SpiderActions
     {
         private @Controls m_Wrapper;
@@ -290,6 +352,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Web => m_Wrapper.m_Spider_Web;
         public InputAction @Swing => m_Wrapper.m_Spider_Swing;
         public InputAction @Slide => m_Wrapper.m_Spider_Slide;
+        public InputAction @Grab => m_Wrapper.m_Spider_Grab;
         public InputActionMap Get() { return m_Wrapper.m_Spider; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,6 +371,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Slide.started -= m_Wrapper.m_SpiderActionsCallbackInterface.OnSlide;
                 @Slide.performed -= m_Wrapper.m_SpiderActionsCallbackInterface.OnSlide;
                 @Slide.canceled -= m_Wrapper.m_SpiderActionsCallbackInterface.OnSlide;
+                @Grab.started -= m_Wrapper.m_SpiderActionsCallbackInterface.OnGrab;
+                @Grab.performed -= m_Wrapper.m_SpiderActionsCallbackInterface.OnGrab;
+                @Grab.canceled -= m_Wrapper.m_SpiderActionsCallbackInterface.OnGrab;
             }
             m_Wrapper.m_SpiderActionsCallbackInterface = instance;
             if (instance != null)
@@ -321,10 +387,46 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Slide.started += instance.OnSlide;
                 @Slide.performed += instance.OnSlide;
                 @Slide.canceled += instance.OnSlide;
+                @Grab.started += instance.OnGrab;
+                @Grab.performed += instance.OnGrab;
+                @Grab.canceled += instance.OnGrab;
             }
         }
     }
     public SpiderActions @Spider => new SpiderActions(this);
+
+    // Debug
+    private readonly InputActionMap m_Debug;
+    private IDebugActions m_DebugActionsCallbackInterface;
+    private readonly InputAction m_Debug_Mouse;
+    public struct DebugActions
+    {
+        private @Controls m_Wrapper;
+        public DebugActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Mouse => m_Wrapper.m_Debug_Mouse;
+        public InputActionMap Get() { return m_Wrapper.m_Debug; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DebugActions set) { return set.Get(); }
+        public void SetCallbacks(IDebugActions instance)
+        {
+            if (m_Wrapper.m_DebugActionsCallbackInterface != null)
+            {
+                @Mouse.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnMouse;
+                @Mouse.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnMouse;
+                @Mouse.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnMouse;
+            }
+            m_Wrapper.m_DebugActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Mouse.started += instance.OnMouse;
+                @Mouse.performed += instance.OnMouse;
+                @Mouse.canceled += instance.OnMouse;
+            }
+        }
+    }
+    public DebugActions @Debug => new DebugActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -348,5 +450,10 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnWeb(InputAction.CallbackContext context);
         void OnSwing(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
+        void OnGrab(InputAction.CallbackContext context);
+    }
+    public interface IDebugActions
+    {
+        void OnMouse(InputAction.CallbackContext context);
     }
 }
