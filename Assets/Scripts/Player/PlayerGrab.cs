@@ -8,6 +8,8 @@ public class PlayerGrab : MonoBehaviour
     [SerializeField]
     private PnjSelection pnjSelection;
 
+    [SerializeField] private NPC.Cursor npcCursor;
+
     private Rigidbody2D rb;
 
     private void Awake () {
@@ -23,10 +25,11 @@ public class PlayerGrab : MonoBehaviour
     }
 
     private void OnGrab (InputAction.CallbackContext ctx)  {
-        Debug.LogWarning("grab");
-        if(ctx.ReadValue<float>() == 1){
+        if(ctx.ReadValueAsButton()) {
             GameObject pnjSelected = pnjSelection.SelectedPnj;
             if(!pnjSelected) return;
+            
+            Debug.LogWarning("grab");
 
             InputManager.Input.Spider.Web.Disable();
             InputManager.Input.Spider.Swing.Disable();
@@ -35,6 +38,8 @@ public class PlayerGrab : MonoBehaviour
             Grab(pnjSelected);
         }else{
             UnGrab();
+            
+            Debug.LogWarning("ungrab");
 
             InputManager.Input.Spider.Web.Enable();
             InputManager.Input.Spider.Swing.Enable();
@@ -46,11 +51,14 @@ public class PlayerGrab : MonoBehaviour
         rb.isKinematic = true;
         rb.velocity = Vector3.zero;
 
+        npcCursor.ShowNPC(pnj);
         //TODO
     }
 
     private void UnGrab () {
         rb.isKinematic = false;
+        
+        npcCursor.ShowNPC(null);
 
         //TODO
     }

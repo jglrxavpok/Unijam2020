@@ -1,7 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Test.Passerby {
+namespace NPC {
     public class PasserbyDescription : MonoBehaviour {
         [SerializeField] private string firstName;
         [SerializeField] private string name;

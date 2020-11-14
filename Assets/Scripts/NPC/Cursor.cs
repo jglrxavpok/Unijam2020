@@ -1,9 +1,7 @@
-﻿using System;
-using Test.Passerby;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Test {
+namespace NPC {
     public class Cursor : MonoBehaviour {
         [SerializeField] private GameObject popupPrefab;
         [SerializeField] private GameObject uiCanvas;
@@ -17,6 +15,7 @@ namespace Test {
         private PasserbyUI popup = null;
         private PasserbyDescription currentDescription = null;
 
+        /*
         private void Start() {
             InputManager.Input.Debug.Mouse.performed += OnMouseMoved;
         }
@@ -28,15 +27,17 @@ namespace Test {
         private void OnMouseMoved(InputAction.CallbackContext context) {
             Vector3 pos = renderCamera.ScreenToWorldPoint(context.ReadValue<Vector2>());
             transform.position = new Vector2(pos.x, pos.y);
-        }
+        }*/
 
-        private void Update() {
-            var passerby = Physics2D.OverlapPoint(transform.position, passerbyLayer.value);
-            if (passerby != null && passerby.gameObject != null) {
-                UpdateContents(passerby.GetComponent<PasserbyDescription>());
+        public void ShowNPC(GameObject obj) {
+            if (obj != null) {
+                UpdateContents(obj.GetComponent<PasserbyDescription>());
             } else {
                 DestroyPopup();
             }
+        }
+
+        private void Update() {
             if (popup != null) {
                 float zLevel = popup.transform.position.z;
                 Vector2 cursorPos = renderCamera.WorldToScreenPoint(transform.position);
