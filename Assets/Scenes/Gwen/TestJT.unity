@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 15384321}
   - component: {fileID: 15384320}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Titre de l'info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,7 +432,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Vol de la Tour Eiffel : Des t\xE9moins racontent avoir vu un homme en
-    costume noir, ayant d\xE9plac\xE9 la tour Eiffel \xE0 l'aide de sa pens\xE9e.
+    combinaison noire, ayant d\xE9plac\xE9 la tour Eiffel \xE0 l'aide de sa pens\xE9e.
     Si vous voyez un homme ressemblant \xE0 cette description, contactez imm\xE9diatement
     les services de Police avant qu'il ne s\xE9visse \xE0 nouveau."
 --- !u!222 &480625854
@@ -540,7 +540,7 @@ GameObject:
   - component: {fileID: 1254205061}
   - component: {fileID: 1254205060}
   m_Layer: 5
-  m_Name: Image
+  m_Name: "Bandeau d\xE9filant"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -617,6 +617,7 @@ GameObject:
   - component: {fileID: 1335442884}
   - component: {fileID: 1335442883}
   - component: {fileID: 1335442882}
+  - component: {fileID: 1335442886}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -708,6 +709,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1335442886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335442881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c228041d0760aa4f9bcc7b6e79b90c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 1849838094}
+  infoTitle: {fileID: 285964844}
+  scrollingText: {fileID: 0}
 --- !u!1 &1380886197
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,8 +758,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.099976, y: 0}
-  m_SizeDelta: {x: 140.11777, y: 28.838013}
+  m_AnchoredPosition: {x: 26.6, y: 0}
+  m_SizeDelta: {x: 143.17197, y: 28.838013}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1380886199
 MonoBehaviour:
@@ -798,7 +814,7 @@ GameObject:
   - component: {fileID: 1497434399}
   - component: {fileID: 1497434398}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Flash Info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1021,7 +1037,7 @@ GameObject:
   - component: {fileID: 1849838095}
   - component: {fileID: 1849838094}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Image descriptive
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
