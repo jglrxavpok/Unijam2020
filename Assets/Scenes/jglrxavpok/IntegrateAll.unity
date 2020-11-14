@@ -188,6 +188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost Anchor
       objectReference: {fileID: 0}
+    - target: {fileID: 1346125760296104244, guid: e5b6728713014a041b371b48bc65689b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5b6728713014a041b371b48bc65689b, type: 3}
 --- !u!1 &130053497 stripped
@@ -867,6 +872,11 @@ PrefabInstance:
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 1749408563}
+    - target: {fileID: 8657297015961290255, guid: fe0f7e76214748a45b188f7129e3728f,
+        type: 3}
+      propertyPath: m_AutoConfigureDistance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8657297015961290256, guid: fe0f7e76214748a45b188f7129e3728f,
         type: 3}
       propertyPath: anchor
@@ -1332,6 +1342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5159084519165499690, guid: 87752fbd9a68a434eae1a1121a9be2bd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5159084519165499692, guid: 87752fbd9a68a434eae1a1121a9be2bd,
         type: 3}
