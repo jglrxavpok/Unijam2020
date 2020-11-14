@@ -572,18 +572,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!114 &1176637514 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7056058789232479305, guid: fe0f7e76214748a45b188f7129e3728f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1314308252}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1999400477d4b60a0370cb4dc55a130, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1268426105
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,14 +792,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1219923215, guid: fe0f7e76214748a45b188f7129e3728f, type: 3}
-      propertyPath: npcCursor
-      value: 
-      objectReference: {fileID: 1176637514}
-    - target: {fileID: 1868470825, guid: fe0f7e76214748a45b188f7129e3728f, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 7056058789232479305, guid: fe0f7e76214748a45b188f7129e3728f,
         type: 3}
       propertyPath: uiCanvas
@@ -882,21 +862,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8657297015961290254, guid: fe0f7e76214748a45b188f7129e3728f,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 3.4
-      objectReference: {fileID: 0}
     - target: {fileID: 8657297015961290255, guid: fe0f7e76214748a45b188f7129e3728f,
         type: 3}
       propertyPath: m_ConnectedRigidBody
       value: 
       objectReference: {fileID: 1749408563}
-    - target: {fileID: 8657297015961290255, guid: fe0f7e76214748a45b188f7129e3728f,
-        type: 3}
-      propertyPath: m_Distance
-      value: 4.36
-      objectReference: {fileID: 0}
     - target: {fileID: 8657297015961290256, guid: fe0f7e76214748a45b188f7129e3728f,
         type: 3}
       propertyPath: anchor
@@ -907,21 +877,6 @@ PrefabInstance:
       propertyPath: ghostAnchor
       value: 
       objectReference: {fileID: 130053497}
-    - target: {fileID: 8657297015961290256, guid: fe0f7e76214748a45b188f7129e3728f,
-        type: 3}
-      propertyPath: torqueFactor
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657297016122892634, guid: fe0f7e76214748a45b188f7129e3728f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657297017798799617, guid: fe0f7e76214748a45b188f7129e3728f,
-        type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe0f7e76214748a45b188f7129e3728f, type: 3}
 --- !u!1 &1448551472

@@ -18,6 +18,7 @@ namespace Player {
         [SerializeField] private SpriteRenderer _renderer;
         [SerializeField] private LayerMask webRaycastLayer;
         [SerializeField] private Animator animator;
+        [SerializeField] private Transform aimCursor;
 
         // PRIVATE-PRIVATE
         private bool OnWeb => anchor.activeSelf;
@@ -123,8 +124,17 @@ namespace Player {
                 animator.SetFloat(SlideDirection, slideInput);
             }
             
-            // update ghost anchor position
-            Vector2 castDirection = new Vector2(Mathf.Cos(shootingAngle*Mathf.Deg2Rad), Mathf.Sin(shootingAngle*Mathf.Deg2Rad));
+            // update ghost anchor position (old version)
+            /*Vector2 castDirection = new Vector2(Mathf.Cos(shootingAngle*Mathf.Deg2Rad), Mathf.Sin(shootingAngle*Mathf.Deg2Rad));
+            var hit = Physics2D.Raycast(Position, castDirection, webRaycastDistance, webRaycastLayer.value);
+            if (hit.collider != null && hit.collider.gameObject != null) {
+                ghostAnchor.SetActive(true);
+                ghostAnchor.transform.position = hit.point;
+            } else {
+                ghostAnchor.SetActive(false);
+            }*/
+
+            Vector2 castDirection = aimCursor.position - transform.position;
             var hit = Physics2D.Raycast(Position, castDirection, webRaycastDistance, webRaycastLayer.value);
             if (hit.collider != null && hit.collider.gameObject != null) {
                 ghostAnchor.SetActive(true);
