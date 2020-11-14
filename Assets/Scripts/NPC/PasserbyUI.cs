@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Test.Passerby {
+namespace NPC {
     public class PasserbyUI : MonoBehaviour {
         [SerializeField] private Text fullName;
         [SerializeField] private Text thought;

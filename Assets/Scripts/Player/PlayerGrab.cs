@@ -5,15 +5,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerGrab : MonoBehaviour
 {
+    public float grabOffsetPos = 0;
+
     [SerializeField]
     private PnjSelection pnjSelection;
     [SerializeField]
     private Animator animator;
+    [SerializeField]
+    private SpriteRenderer sprite;
+
+    [SerializeField]
+    private NPC.Cursor npcCursor;
 
     private Rigidbody2D rb;
 
     private void Awake () {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     private void Start () {
@@ -25,10 +33,10 @@ public class PlayerGrab : MonoBehaviour
     }
 
     private void OnGrab (InputAction.CallbackContext ctx)  {
-        if(ctx.ReadValue<float>() == 1){
+        if(ctx.ReadValueAsButton()) {
             GameObject pnjSelected = pnjSelection.SelectedPnj;
             if(!pnjSelected) return;
-
+            
             InputManager.Input.Spider.Web.Disable();
             InputManager.Input.Spider.Swing.Disable();
             InputManager.Input.Spider.Slide.Disable();
@@ -36,7 +44,7 @@ public class PlayerGrab : MonoBehaviour
             Grab(pnjSelected);
         }else{
             UnGrab();
-
+            
             InputManager.Input.Spider.Web.Enable();
             InputManager.Input.Spider.Swing.Enable();
             InputManager.Input.Spider.Slide.Enable();
@@ -48,12 +56,22 @@ public class PlayerGrab : MonoBehaviour
         rb.velocity = Vector3.zero;
         animator.SetBool("IsGrab", true);
 
-        //TODO
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, pnj.transform.position - transform.position, 100f, LayerMask.GetMask("PasserbyLayer"));
+        if (hit.collider != null) {
+            transform.LookAt(hit.normal);
+            transform.position = hit.point + hit.normal * grabOffsetPos;
+            if(hit.normal.y < 0) sprite.flipY = true;
+        }else{
+            transform.LookAt(Vector2.up);
+        }
+
+        npcCursor?.ShowNPC(pnj);
     }
 
     private void UnGrab () {
         rb.isKinematic = false;
-        animator.SetBool("IsGrab", true);
-        //TODO
+        animator.SetBool("IsGrab", false);
+        sprite.flipY = false;   
+        npcCursor?.ShowNPC(null);
     }
 }
