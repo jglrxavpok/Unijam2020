@@ -9,6 +9,8 @@ public class PnjBuilder : MonoBehaviour
 {
     public static PnjBuilder Instance;
 
+    public PnjScriptableObject pnjValues;
+
     private string[] _firstNames;
     private string[] _lastNames;
 
@@ -54,7 +56,7 @@ public class PnjBuilder : MonoBehaviour
         var ret = new GameObject(firstName + ' ' + lastName);
         var pnj = ret.AddComponent<Pnj>();
         pnj.gender = (firstNameIndex<_firstNames.Length/2)?'M':'F'; //Première moitié de noms masculins
-        
+        pnj.thoughts = pnjValues.thoughts[Random.Range(0, pnjValues.thoughts.Length)];
         return ret;
     }
 }

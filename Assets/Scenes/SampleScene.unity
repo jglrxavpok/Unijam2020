@@ -150,7 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9e6b86cec92c8342989c273318a2908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnProbability: 0
+  pnjValues: {fileID: 11400000, guid: 13eda9d3a66f8ce4d9c6a84204f6083d, type: 2}
+  spawnProbability: 0.196
 --- !u!4 &1031036265
 Transform:
   m_ObjectHideFlags: 0
