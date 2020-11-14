@@ -12,10 +12,13 @@ public class Timer : MonoBehaviour
     [Tooltip("Allows to pause the timer.")]
     public bool running = true;
 
+    [SerializeField]
+    private string prefix;
+
     public static event Action TimerFinished;
 
     private Text _text;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,12 +46,12 @@ public class Timer : MonoBehaviour
     {
         if (time < 60)
         {
-            _text.text = time.ToString("0.0");
+            _text.text = prefix+time.ToString("0.0");
         }
         else
         {
             var minutes = (int) (time / 60);
-            _text.text = minutes.ToString() + ':' + (time - 60 * minutes).ToString("00.0");
+            _text.text = prefix+minutes.ToString() + ':' + (time - 60 * minutes).ToString("00.0");
         }
     }
 }
