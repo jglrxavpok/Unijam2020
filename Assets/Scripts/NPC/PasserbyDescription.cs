@@ -11,8 +11,6 @@ namespace NPC {
         [SerializeField] private Sprite facePhoto;
         [SerializeField] private float score;
 
-        [SerializeField] private ThoughtManager _thoughtManager;
-
         private void Start() {
             LoadRandom();
         }
@@ -21,16 +19,31 @@ namespace NPC {
             var fullName = NPCBuilder.GetRandomName(); 
             firstName = fullName.Split(' ')[0];
             name = fullName.Split(' ')[1];
-            
         }
         
-        public float Score => score;
         public Sprite FacePhoto => facePhoto;
         public string FirstName => firstName;
         public string Name => name;
-        public string Taste => taste;
-        public string Judgment => judgment;
-        public string Desire => desire;
-        public string Intention => intention;
+
+        public float Score {
+            get => score;
+            set => score = value;
+        }
+        public string Taste {
+            get => taste;
+            set => taste = value;
+        }
+        public string Judgment {
+            get => judgment;
+            set => judgment = value;
+        }
+        public string Desire {
+            get => desire;
+            set => desire = value;
+        }
+        public string Intention {
+            get => intention;
+            set => intention = value;
+        }
     }
 }

@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NPC;
 using UnityEngine;
 
-public class ThoughtManager : MonoBehaviour
-{
+public class ThoughtManager : MonoBehaviour {
 
+    [SerializeField]
+    private PasserbyDescription npc;
+    
     public ThoughtsDB thoughtsDB;
     private ThoughtsDB.TasteThought tasteThought;
     private ThoughtsDB.Thing thing;
@@ -24,36 +27,49 @@ public class ThoughtManager : MonoBehaviour
     {
         tasteThought = thoughtsDB.GetRandomTasteThought();
         thing = thoughtsDB.GetRandomThing();
-        tastePositivity = tasteThought.positivity * thing.positivity; 
+        tastePositivity = tasteThought.positivity * thing.positivity;
+        if (npc) {
+            npc.Taste = tasteThought.content + thing.content;
+        }
         print("Taste : " + tasteThought.content + thing.content + ". Score : " + tastePositivity); 
         intentionThought = thoughtsDB.GetRandomIntentionThought();
         action = thoughtsDB.GetRandomAction();
         intentionPositivity = intentionThought.positivity * action.positivity;
+        if (npc) {
+            npc.Intention = intentionThought.content + action.content;
+        }
         print("Intention : " + intentionThought.content + action.content + ". Score : " + intentionPositivity); //TODO : use gender of the npc
         judgementThought = thoughtsDB.GetRandomJudgementThought();
         qualificative = thoughtsDB.GetRandomQualificative();
         judgementPositivity = judgementThought.positivity * qualificative.positivity;
+
+        string judgmentStr;
         if (judgementThought.gender == ThoughtsDB.Gender.feminine && judgementThought.number == ThoughtsDB.Number.plural)
         {
-            print("Judgement : " + judgementThought.content + qualificative.femininePluralContent + ". Score : " + judgementPositivity);
+            judgmentStr = judgementThought.content + qualificative.femininePluralContent;
         }
-        else if (judgementThought.gender == ThoughtsDB.Gender.feminine)
-        {
-            print("Judgement : " + judgementThought.content + qualificative.feminineContent + ". Score : " + judgementPositivity);
+        else if (judgementThought.gender == ThoughtsDB.Gender.feminine) {
+            judgmentStr = judgementThought.content + qualificative.feminineContent;
         }
         else if (judgementThought.number == ThoughtsDB.Number.plural)
         {
-            print("Judgement : " + judgementThought.content + qualificative.pluralContent + ". Score : " + judgementPositivity);
+            judgmentStr = judgementThought.content + qualificative.pluralContent;
         }
         else
         {
-            print("Judgement : " + judgementThought.content + qualificative.content + ". Score : " + judgementPositivity);
+            judgmentStr = judgementThought.content + qualificative.content;
         }
         desireThought = thoughtsDB.GetRandomDesireThought();
         desire = thoughtsDB.GetRandomDesire();
         desirePositivity = desireThought.positivity * desire.positivity;
-        print("Desire : " + desireThought.content + desire.content + ". Score : " + desirePositivity); //TODO : use gender of the npc
+        if (npc) {
+            npc.Desire = desireThought.content + desire.content; //TODO : use gender of the npc
+        }
         positivity = tastePositivity + intentionPositivity + judgementPositivity + desirePositivity;
+        if (npc) {
+            npc.Judgment = judgmentStr;
+            npc.Score = positivity;
+        }
         print("Total Positivity : " + positivity.ToString());
     }
 
