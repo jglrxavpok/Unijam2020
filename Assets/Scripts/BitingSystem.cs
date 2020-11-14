@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class BitingSystem {
 
+    public delegate void BiteCountChangeEventHandler(int count);
+
+    // Declare the event.
+    public event BiteCountChangeEventHandler BiteCountChange;
+    
     private static BitingSystem instance;
 
     public static BitingSystem Instance {
@@ -31,6 +36,7 @@ public class BitingSystem {
             return;
         totalScore += npcMoralityScore;
         allowedBites--;
+        BiteCountChange?.Invoke(allowedBites);
         Debug.Log("Allowed bites: "+allowedBites);
         if (allowedBites == 0) {
             // trigger round end
