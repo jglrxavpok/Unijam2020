@@ -338,8 +338,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 339f0390345724143abfc4087f48f9ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grabOffsetPos: 0.4
   pnjSelection: {fileID: 630050255}
-  animator: {fileID: 0}
+  animator: {fileID: 1598732647522293645}
+  sprite: {fileID: 8657297017798799619}
+  npcCursor: {fileID: 0}
 --- !u!1 &8657297016122892634
 GameObject:
   m_ObjectHideFlags: 0
