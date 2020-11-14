@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
@@ -13,12 +14,12 @@ public class Timer : MonoBehaviour
 
     public static event Action TimerFinished;
 
-    private TextMeshProUGUI _textMeshProUGUI;
+    private Text _text;
     
     // Start is called before the first frame update
     void Start()
     {
-        _textMeshProUGUI = gameObject.GetComponent<TextMeshProUGUI>();
+        _text = gameObject.GetComponent<Text>();
         Display();
     }
 
@@ -42,12 +43,12 @@ public class Timer : MonoBehaviour
     {
         if (time < 60)
         {
-            _textMeshProUGUI.text = time.ToString("0.0");
+            _text.text = time.ToString("0.0");
         }
         else
         {
             var minutes = (int) (time / 60);
-            _textMeshProUGUI.text = minutes.ToString() + ':' + (time - 60 * minutes).ToString("00.0");
+            _text.text = minutes.ToString() + ':' + (time - 60 * minutes).ToString("00.0");
         }
     }
 }
