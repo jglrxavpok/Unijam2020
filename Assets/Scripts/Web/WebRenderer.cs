@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class WebRenderer : MonoBehaviour
 {
+    [Min(3)]
     public int nbPoint = 50;
+    public Rigidbody2D followRigidbody;
+    [Range(0, 1)]
+    public float velocityInfluence = 0.5f;
 
     private LineRenderer line;
 
@@ -41,6 +45,7 @@ public class WebRenderer : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, endPoint);
         Vector3 center = transform.position + transform.up * distance / 2;
+        center += -new Vector3(followRigidbody.velocity.x, followRigidbody.velocity.y, 0) * velocityInfluence;
 
         for(int i = 1; i < nbPoint - 1; ++i){
             float t = (float)i / (nbPoint - 1);
