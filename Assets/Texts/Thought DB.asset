@@ -10,61 +10,67 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f894af2e13a80d847a99da7e1a856145, type: 3}
-  m_Name: New Thought DB
+  m_Name: Thought DB
   m_EditorClassIdentifier: 
-  thoughts:
+  tasteThoughts:
   - content: 'J''aime '
     type: 0
-    gender: 0
-    number: 0
     positivity: 1
+  - content: 'Je n''aime pas '
+    type: 0
+    positivity: -1
+  - content: 'J''adore '
+    type: 0
+    positivity: 2
   - content: "Je d\xE9teste "
     type: 0
-    gender: 0
-    number: 0
-    positivity: -1
-  - content: Je devrais
+    positivity: -2
+  intentionThoughts:
+  - content: 'Je devrais '
     type: 1
-    gender: 0
-    number: 0
     positivity: 1
-  - content: Je ne devrais pas
+  - content: 'Je ne devrais pas '
     type: 1
-    gender: 0
-    number: 0
-    positivity: -1
+    positivity: -2
+  - content: 'Je dois '
+    type: 1
+    positivity: 2
+  - content: 'Je pourrais plus '
+    type: 1
+    positivity: 1
+  judgementThoughts:
   - content: 'Les gens sont vraiment '
     type: 2
+    positivity: 1
     gender: 0
     number: 1
-    positivity: 0
-  - content: 'Cet endroit est '
+  - content: 'Ma famille est  '
     type: 2
-    gender: 0
-    number: 0
     positivity: 1
-  - content: 'Les gens sont vraiment '
-    type: 2
-    gender: 0
+    gender: 1
     number: 0
-    positivity: 1
   - content: 'Mon quotidien est '
     type: 2
+    positivity: 1
     gender: 0
     number: 0
+  - content: 'Cette ville est '
+    type: 2
     positivity: 1
-  - content: 'J''aurais du '
-    type: 1
-    gender: 0
+    gender: 1
     number: 0
+  desireThoughts:
+  - content: 'J''ai envie '
+    type: 3
     positivity: 1
-  - content: 'Je n''aurais pas du '
-    type: 1
-    gender: 0
-    number: 1
+  - content: 'Je n''ai pas envie '
+    type: 3
     positivity: -1
+  - content: 'J''ai besoin '
+    type: 3
+    positivity: 2
   things:
-  - content: le chocolat
+  - content: le sport
     positivity: 1
   - content: la justice
     positivity: 3
@@ -79,11 +85,11 @@ MonoBehaviour:
   - content: la vie
     positivity: 3
   - content: la musique
-    positivity: 2
+    positivity: 1
   - content: les gens
     positivity: 3
   - content: cette ville
-    positivity: 1
+    positivity: 2
   - content: le sang
     positivity: -2
   - content: "l'\xE9cologie"
@@ -95,14 +101,14 @@ MonoBehaviour:
     femininePluralContent: stupides
     positivity: -1
   - content: horrible
-    feminineContent: 
-    pluralContent: 
-    femininePluralContent: 
+    feminineContent: horrible
+    pluralContent: horribles
+    femininePluralContent: horribles
     positivity: -2
   - content: "agr\xE9able"
-    feminineContent: 
-    pluralContent: 
-    femininePluralContent: 
+    feminineContent: "agr\xE9able"
+    pluralContent: "agr\xE9ables"
+    femininePluralContent: "agr\xE9ables"
     positivity: 2
   - content: monstrueux
     feminineContent: monstrueuse
@@ -117,22 +123,22 @@ MonoBehaviour:
   - content: bien
     feminineContent: bien
     pluralContent: biens
-    femininePluralContent: bien
+    femininePluralContent: biens
     positivity: 1
   - content: dur
-    feminineContent: 
-    pluralContent: 
-    femininePluralContent: 
+    feminineContent: dure
+    pluralContent: durs
+    femininePluralContent: dures
     positivity: -1
   - content: sympa
-    feminineContent: 
-    pluralContent: 
-    femininePluralContent: 
+    feminineContent: sympa
+    pluralContent: sympa
+    femininePluralContent: sympa
     positivity: 2
   - content: parfait
-    feminineContent: 
-    pluralContent: 
-    femininePluralContent: 
+    feminineContent: parfaite
+    pluralContent: parfaits
+    femininePluralContent: parfaites
     positivity: 3
   actions:
   - content: "m'\xE9loigner d'ici"
@@ -154,4 +160,29 @@ MonoBehaviour:
   - content: "suivre la majorit\xE9"
     positivity: 1
   - content: cacher ce que je ressens
+    positivity: -2
+  desires:
+  - content: de tuer
+    feminineContent: de tuer
+    positivity: -3
+  - content: de sauver des gens
+    feminineContent: de sauver des gens
+    positivity: 3
+  - content: d'aider mon prochain
+    feminineContent: d'aider mon prochain
+    positivity: 2
+  - content: d'avoir de la reconnaissance
+    feminineContent: d'avoir de la reconnaissance
+    positivity: -1
+  - content: "d'\xEAtre c\xE9l\xE8bre"
+    feminineContent: "d'\xEAtre c\xE9l\xE8bre"
+    positivity: -1
+  - content: "d'am\xE9liorer cette ville"
+    feminineContent: "d'am\xE9liorer cette ville"
+    positivity: 1
+  - content: "d'\xEAtre meilleur"
+    feminineContent: "d'\xEAtre meilleure"
+    positivity: 2
+  - content: "de contr\xF4ler les autres"
+    feminineContent: "de contr\xF4ler les autres"
     positivity: -2

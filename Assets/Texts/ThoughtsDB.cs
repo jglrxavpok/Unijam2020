@@ -82,6 +82,7 @@ public class ThoughtsDB : ScriptableObject
     public struct Desire
     {
         public string content;
+        public string feminineContent;
         public int positivity;
     }
 
