@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class NpcBuilder : MonoBehaviour
+public class NPCBuilder : MonoBehaviour
 {
     private static string[] _firstNames;
     private static string[] _lastNames;
