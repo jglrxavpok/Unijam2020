@@ -49,6 +49,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Press(behavior=2)""
+                },
+                {
+                    ""name"": ""Bite"",
+                    ""type"": ""Button"",
+                    ""id"": ""00d5a016-72c9-41d1-a733-8472ee01bd86"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -225,6 +233,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1a67316-cc5e-4d29-af4b-04d1eb9c9464"",
+                    ""path"": ""<Keyboard>/#(Z)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Bite"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02a84e98-055d-4a2b-b360-17b9a514bb25"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Bite"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -795,6 +825,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Spider_Swing = m_Spider.FindAction("Swing", throwIfNotFound: true);
         m_Spider_Slide = m_Spider.FindAction("Slide", throwIfNotFound: true);
         m_Spider_Grab = m_Spider.FindAction("Grab", throwIfNotFound: true);
+        m_Spider_Bite = m_Spider.FindAction("Bite", throwIfNotFound: true);
         // Debug
         m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
         m_Debug_Mouse = m_Debug.FindAction("Mouse", throwIfNotFound: true);
@@ -863,6 +894,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Spider_Swing;
     private readonly InputAction m_Spider_Slide;
     private readonly InputAction m_Spider_Grab;
+    private readonly InputAction m_Spider_Bite;
     public struct SpiderActions
     {
         private @Controls m_Wrapper;
@@ -871,6 +903,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Swing => m_Wrapper.m_Spider_Swing;
         public InputAction @Slide => m_Wrapper.m_Spider_Slide;
         public InputAction @Grab => m_Wrapper.m_Spider_Grab;
+        public InputAction @Bite => m_Wrapper.m_Spider_Bite;
         public InputActionMap Get() { return m_Wrapper.m_Spider; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -892,6 +925,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Grab.started -= m_Wrapper.m_SpiderActionsCallbackInterface.OnGrab;
                 @Grab.performed -= m_Wrapper.m_SpiderActionsCallbackInterface.OnGrab;
                 @Grab.canceled -= m_Wrapper.m_SpiderActionsCallbackInterface.OnGrab;
+                @Bite.started -= m_Wrapper.m_SpiderActionsCallbackInterface.OnBite;
+                @Bite.performed -= m_Wrapper.m_SpiderActionsCallbackInterface.OnBite;
+                @Bite.canceled -= m_Wrapper.m_SpiderActionsCallbackInterface.OnBite;
             }
             m_Wrapper.m_SpiderActionsCallbackInterface = instance;
             if (instance != null)
@@ -908,6 +944,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Grab.started += instance.OnGrab;
                 @Grab.performed += instance.OnGrab;
                 @Grab.canceled += instance.OnGrab;
+                @Bite.started += instance.OnBite;
+                @Bite.performed += instance.OnBite;
+                @Bite.canceled += instance.OnBite;
             }
         }
     }
@@ -1074,6 +1113,7 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnSwing(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
         void OnGrab(InputAction.CallbackContext context);
+        void OnBite(InputAction.CallbackContext context);
     }
     public interface IDebugActions
     {

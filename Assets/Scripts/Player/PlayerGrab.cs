@@ -1,19 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerMovement))]
 public class PlayerGrab : MonoBehaviour
 {
-    [SerializeField]
-    private PnjSelection pnjSelection;
+    public float grabOffsetPos = 0;
 
-    [SerializeField] private NPC.Cursor npcCursor;
+    [SerializeField]
+    private PnjSelection pnjSelection = null;
+    [SerializeField]
+    private Animator animator = null;
+    [SerializeField]
+    private SpriteRenderer sprite = null;
+
+    [SerializeField]
+    private NPC.Cursor npcCursor = null;
 
     private Rigidbody2D rb;
+    private PlayerMovement _movement;
+
+    public bool IsGrab {get; private set;}
+    public GameObject PnjGrabbed {get; private set;}
 
     private void Awake () {
         rb = GetComponent<Rigidbody2D>();
+        _movement = GetComponent<PlayerMovement>();
     }
 
     private void Start () {
@@ -28,38 +40,56 @@ public class PlayerGrab : MonoBehaviour
         if(ctx.ReadValueAsButton()) {
             GameObject pnjSelected = pnjSelection.SelectedPnj;
             if(!pnjSelected) return;
-            
-            Debug.LogWarning("grab");
-
-            InputManager.Input.Spider.Web.Disable();
-            InputManager.Input.Spider.Swing.Disable();
-            InputManager.Input.Spider.Slide.Disable();
 
             Grab(pnjSelected);
         }else{
-            UnGrab();
-            
-            Debug.LogWarning("ungrab");
+            if(!IsGrab) return;
 
-            InputManager.Input.Spider.Web.Enable();
-            InputManager.Input.Spider.Swing.Enable();
-            InputManager.Input.Spider.Slide.Enable();
+            UnGrab();
         }
     }
 
     private void Grab (GameObject pnj) {
+        _movement.KeepWeb();
         rb.isKinematic = true;
         rb.velocity = Vector3.zero;
+        animator.SetBool("IsGrab", true);
+        _movement.enabled = false;
 
-        npcCursor.ShowNPC(pnj);
-        //TODO
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, pnj.transform.position - transform.position, 100f, LayerMask.GetMask("PasserbyLayer"));
+        if (hit.collider != null) {
+            float z = Vector3.Angle(transform.up, hit.normal);
+            if(hit.normal.x > 0) z *= -1;
+            sprite.gameObject.transform.rotation = Quaternion.Euler(0, 0, z);
+            transform.position = hit.point + hit.normal * grabOffsetPos;
+        }else{
+            transform.LookAt(Vector2.up);
+        }
+
+        npcCursor?.ShowNPC(pnj);
+
+        PnjGrabbed = pnj;
+        IsGrab = true;
+
+        InputManager.Input.Spider.Web.Disable();
+        InputManager.Input.Spider.Swing.Disable();
+        InputManager.Input.Spider.Slide.Disable();
     }
 
-    private void UnGrab () {
+    public void UnGrab () {
+        _movement.DontKeepWeb();
         rb.isKinematic = false;
+        rb.velocity = Vector2.zero;
+        animator.SetBool("IsGrab", false);
+        _movement.enabled = true;
         
-        npcCursor.ShowNPC(null);
+        npcCursor?.ShowNPC(null);
 
-        //TODO
+        PnjGrabbed = null;
+        IsGrab = false;
+
+        InputManager.Input.Spider.Web.Enable();
+        InputManager.Input.Spider.Swing.Enable();
+        InputManager.Input.Spider.Slide.Enable();
     }
 }
