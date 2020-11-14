@@ -8,17 +8,20 @@ public class PlayerGrab : MonoBehaviour
     public float grabOffsetPos = 0;
 
     [SerializeField]
-    private PnjSelection pnjSelection;
+    private PnjSelection pnjSelection = null;
     [SerializeField]
-    private Animator animator;
+    private Animator animator = null;
     [SerializeField]
-    private SpriteRenderer sprite;
+    private SpriteRenderer sprite = null;
 
     [SerializeField]
-    private NPC.Cursor npcCursor;
+    private NPC.Cursor npcCursor = null;
 
     private Rigidbody2D rb;
     private Player.PlayerMovement playerMovement;
+
+    public bool IsGrab {get; private set;}
+    public GameObject PnjGrabbed {get; private set;}
 
     private void Awake () {
         rb = GetComponent<Rigidbody2D>();
@@ -45,6 +48,8 @@ public class PlayerGrab : MonoBehaviour
 
             Grab(pnjSelected);
         }else{
+            if(!IsGrab) return;
+
             UnGrab();
             
             InputManager.Input.Spider.Web.Enable();
@@ -70,12 +75,18 @@ public class PlayerGrab : MonoBehaviour
         }
 
         npcCursor?.ShowNPC(pnj);
+
+        PnjGrabbed = pnj;
+        IsGrab = true;
     }
 
-    private void UnGrab () {
+    public void UnGrab () {
         rb.isKinematic = false;
         animator.SetBool("IsGrab", false);
         playerMovement.enabled = true;
         npcCursor?.ShowNPC(null);
+
+        PnjGrabbed = null;
+        IsGrab = false;
     }
 }
