@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ef7d6adadbdf84db381e62ed43cd42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torqueFactor: 0.25
+  torqueFactor: 0.5
   webRaycastDistance: 10
   swingInputDeadzone: 0.1
   slideSpeed: 1
@@ -308,6 +308,7 @@ MonoBehaviour:
   webRaycastLayer:
     serializedVersion: 2
     m_Bits: 256
+  animator: {fileID: 1598732647522293645}
 --- !u!58 &8657297015961290257
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -415,6 +416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8657297017798799618}
   - component: {fileID: 8657297017798799619}
+  - component: {fileID: 1598732647522293645}
   m_Layer: 0
   m_Name: Render
   m_TagString: Untagged
@@ -487,3 +489,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1598732647522293645
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8657297017798799617}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6938ece5a4031c54eaa236619c4b199e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

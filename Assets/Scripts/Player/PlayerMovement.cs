@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Animations;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace Player {
@@ -17,6 +18,7 @@ namespace Player {
         [SerializeField] private GameObject debugArrow;
         [SerializeField] private SpriteRenderer _renderer;
         [SerializeField] private LayerMask webRaycastLayer;
+        [SerializeField] private Animator animator;
 
         // PRIVATE-PRIVATE
         private bool onWeb = true; // TODO: dynamically change
@@ -34,6 +36,8 @@ namespace Player {
         private bool shouldShootWeb;
         private bool shouldCutWeb;
         private float shootingAngle;
+        private static readonly int SwingDirection = Animator.StringToHash("SwingDirection");
+        private static readonly int SlideDirection = Animator.StringToHash("SlideDirection");
 
         void Start() {
             InputManager.Input.Spider.Web.started += OnShootWeb;
@@ -70,6 +74,9 @@ namespace Player {
                 shouldCutWeb = false;
             }
 
+            animator.SetFloat(SwingDirection, 0.0f);
+            animator.SetFloat(SlideDirection, 0.0f);
+            
             // swing spider
             if (onWeb) {
                 float horizontalInput = swingInput;
@@ -103,6 +110,9 @@ namespace Player {
                 // rotate player sprite to show angle from anchor
                 float renderAngle = Vector2.SignedAngle(Vector2.up, AnchorPoint - Position);
                 _renderer.transform.rotation = Quaternion.Euler(0, 0, renderAngle);
+                
+                animator.SetFloat(SwingDirection, horizontalInput);
+                animator.SetFloat(SlideDirection, slideInput);
             }
             
             // update ghost anchor position
