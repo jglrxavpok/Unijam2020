@@ -28,6 +28,7 @@ public class NPCMovement : MonoBehaviour {
     private float side = 1;
     private int nbMove = 0;
     private Rigidbody2D rigidBody;
+    private float realSpeed = 0;
 
     // Start is called before the first frame update
     void Start() {
@@ -60,14 +61,15 @@ public class NPCMovement : MonoBehaviour {
         }
         float position = transform.position.x;
         if (position >= initialPosition - leftRange && position <= initialPosition + rightRange) {
-            rigidBody.velocity = new Vector2(speed * side, rigidBody.velocity.y);
+            realSpeed = speed * side;
         }
         else {
             initialPosition = position;
-            rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
+            realSpeed = 0;
             nbMove++;
             side *= -1;
         }
+        rigidBody.velocity = new Vector2(realSpeed, rigidBody.velocity.y);
     }
 
     private float setRange() {
@@ -87,6 +89,10 @@ public class NPCMovement : MonoBehaviour {
         else {
             side = -1;
         }
+    }
+
+    public float getSpeed() {
+        return realSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
