@@ -199,6 +199,33 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Debug"",
+            ""id"": ""4e7cdc41-ff56-451d-8eed-171663df8315"",
+            ""actions"": [
+                {
+                    ""name"": ""Mouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""703eaa95-1320-4baf-bc2e-b66182e62126"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a904e6d4-7257-4ed3-88b5-6fe52479d5e1"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -231,6 +258,9 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Spider_Web = m_Spider.FindAction("Web", throwIfNotFound: true);
         m_Spider_Swing = m_Spider.FindAction("Swing", throwIfNotFound: true);
         m_Spider_Slide = m_Spider.FindAction("Slide", throwIfNotFound: true);
+        // Debug
+        m_Debug = asset.FindActionMap("Debug", throwIfNotFound: true);
+        m_Debug_Mouse = m_Debug.FindAction("Mouse", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -325,6 +355,39 @@ public class @Controls : IInputActionCollection, IDisposable
         }
     }
     public SpiderActions @Spider => new SpiderActions(this);
+
+    // Debug
+    private readonly InputActionMap m_Debug;
+    private IDebugActions m_DebugActionsCallbackInterface;
+    private readonly InputAction m_Debug_Mouse;
+    public struct DebugActions
+    {
+        private @Controls m_Wrapper;
+        public DebugActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Mouse => m_Wrapper.m_Debug_Mouse;
+        public InputActionMap Get() { return m_Wrapper.m_Debug; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DebugActions set) { return set.Get(); }
+        public void SetCallbacks(IDebugActions instance)
+        {
+            if (m_Wrapper.m_DebugActionsCallbackInterface != null)
+            {
+                @Mouse.started -= m_Wrapper.m_DebugActionsCallbackInterface.OnMouse;
+                @Mouse.performed -= m_Wrapper.m_DebugActionsCallbackInterface.OnMouse;
+                @Mouse.canceled -= m_Wrapper.m_DebugActionsCallbackInterface.OnMouse;
+            }
+            m_Wrapper.m_DebugActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Mouse.started += instance.OnMouse;
+                @Mouse.performed += instance.OnMouse;
+                @Mouse.canceled += instance.OnMouse;
+            }
+        }
+    }
+    public DebugActions @Debug => new DebugActions(this);
     private int m_KeyboardSchemeIndex = -1;
     public InputControlScheme KeyboardScheme
     {
@@ -348,5 +411,9 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnWeb(InputAction.CallbackContext context);
         void OnSwing(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
+    }
+    public interface IDebugActions
+    {
+        void OnMouse(InputAction.CallbackContext context);
     }
 }
