@@ -61,13 +61,10 @@ public class PlayerGrab : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, pnj.transform.position - transform.position, 100f, LayerMask.GetMask("PasserbyLayer"));
         if (hit.collider != null) {
-            //transform.LookAt(hit.normal);
             float z = Vector3.Angle(transform.up, hit.normal);
             if(hit.normal.x > 0) z *= -1;
             sprite.gameObject.transform.rotation = Quaternion.Euler(0, 0, z);
-            Debug.Log(hit.normal);
             transform.position = hit.point + hit.normal * grabOffsetPos;
-            //if(hit.normal.y < 0) sprite.flipY = true;
         }else{
             transform.LookAt(Vector2.up);
         }
@@ -78,7 +75,6 @@ public class PlayerGrab : MonoBehaviour
     private void UnGrab () {
         rb.isKinematic = false;
         animator.SetBool("IsGrab", false);
-        sprite.flipY = false;   
         playerMovement.enabled = true;
         npcCursor?.ShowNPC(null);
     }
