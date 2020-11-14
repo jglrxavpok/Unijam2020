@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f894af2e13a80d847a99da7e1a856145, type: 3}
+  m_Name: Thought DB
+  m_EditorClassIdentifier: 
+  tasteThoughts:
+  - content: 'J''aime '
+    type: 0
+    positivity: 1
+  - content: 'Je n''aime pas '
+    type: 0
+    positivity: -1
+  - content: 'J''adore '
+    type: 0
+    positivity: 2
+  - content: "Je d\xE9teste "
+    type: 0
+    positivity: -2
+  intentionThoughts:
+  - content: 'Je devrais '
+    type: 1
+    positivity: 1
+  - content: 'Je ne devrais pas '
+    type: 1
+    positivity: -2
+  - content: 'Je dois '
+    type: 1
+    positivity: 2
+  - content: 'Je pourrais plus '
+    type: 1
+    positivity: 1
+  judgementThoughts:
+  - content: 'Les gens sont vraiment '
+    type: 2
+    positivity: 1
+    gender: 0
+    number: 1
+  - content: 'Ma famille est  '
+    type: 2
+    positivity: 1
+    gender: 1
+    number: 0
+  - content: 'Mon quotidien est '
+    type: 2
+    positivity: 1
+    gender: 0
+    number: 0
+  - content: 'Cette ville est '
+    type: 2
+    positivity: 1
+    gender: 1
+    number: 0
+  desireThoughts:
+  - content: 'J''ai envie '
+    type: 3
+    positivity: 1
+  - content: 'Je n''ai pas envie '
+    type: 3
+    positivity: -1
+  - content: 'J''ai besoin '
+    type: 3
+    positivity: 2
+  things:
+  - content: le sport
+    positivity: 1
+  - content: la justice
+    positivity: 3
+  - content: les animaux
+    positivity: 1
+  - content: l'argent
+    positivity: -1
+  - content: le pouvoir
+    positivity: -2
+  - content: le feu
+    positivity: -2
+  - content: la vie
+    positivity: 3
+  - content: la musique
+    positivity: 1
+  - content: les gens
+    positivity: 3
+  - content: cette ville
+    positivity: 2
+  - content: le sang
+    positivity: -2
+  - content: "l'\xE9cologie"
+    positivity: 2
+  qualificatives:
+  - content: stupide
+    feminineContent: stupide
+    pluralContent: stupides
+    femininePluralContent: stupides
+    positivity: -1
+  - content: horrible
+    feminineContent: horrible
+    pluralContent: horribles
+    femininePluralContent: horribles
+    positivity: -2
+  - content: "agr\xE9able"
+    feminineContent: "agr\xE9able"
+    pluralContent: "agr\xE9ables"
+    femininePluralContent: "agr\xE9ables"
+    positivity: 2
+  - content: monstrueux
+    feminineContent: monstrueuse
+    pluralContent: monstrueux
+    femininePluralContent: monstrueuses
+    positivity: -3
+  - content: super
+    feminineContent: super
+    pluralContent: supers
+    femininePluralContent: supers
+    positivity: 2
+  - content: bien
+    feminineContent: bien
+    pluralContent: biens
+    femininePluralContent: biens
+    positivity: 1
+  - content: dur
+    feminineContent: dure
+    pluralContent: durs
+    femininePluralContent: dures
+    positivity: -1
+  - content: sympa
+    feminineContent: sympa
+    pluralContent: sympa
+    femininePluralContent: sympa
+    positivity: 2
+  - content: parfait
+    feminineContent: parfaite
+    pluralContent: parfaits
+    femininePluralContent: parfaites
+    positivity: 3
+  actions:
+  - content: "m'\xE9loigner d'ici"
+    positivity: -1
+  - content: me faire confiance
+    positivity: 1
+  - content: leur dire ce que je pense vraiment
+    positivity: 1
+  - content: "arr\xEAter de me laisser tenter"
+    positivity: 1
+  - content: apporter mon aide
+    positivity: 3
+  - content: faire ce qu'il faut
+    positivity: 2
+  - content: changer d'avis
+    positivity: 2
+  - content: attendre qu'on m'aide
+    positivity: 2
+  - content: "suivre la majorit\xE9"
+    positivity: 1
+  - content: cacher ce que je ressens
+    positivity: -2
+  desires:
+  - content: de tuer
+    feminineContent: de tuer
+    positivity: -3
+  - content: de sauver des gens
+    feminineContent: de sauver des gens
+    positivity: 3
+  - content: d'aider mon prochain
+    feminineContent: d'aider mon prochain
+    positivity: 2
+  - content: d'avoir de la reconnaissance
+    feminineContent: d'avoir de la reconnaissance
+    positivity: -1
+  - content: "d'\xEAtre c\xE9l\xE8bre"
+    feminineContent: "d'\xEAtre c\xE9l\xE8bre"
+    positivity: -1
+  - content: "d'am\xE9liorer cette ville"
+    feminineContent: "d'am\xE9liorer cette ville"
+    positivity: 1
+  - content: "d'\xEAtre meilleur"
+    feminineContent: "d'\xEAtre meilleure"
+    positivity: 2
+  - content: "de contr\xF4ler les autres"
+    feminineContent: "de contr\xF4ler les autres"
+    positivity: -2
