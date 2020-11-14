@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerMovement))]
 public class PlayerGrab : MonoBehaviour
 {
     public float grabOffsetPos = 0;
@@ -18,15 +18,14 @@ public class PlayerGrab : MonoBehaviour
     private NPC.Cursor npcCursor = null;
 
     private Rigidbody2D rb;
-    private Player.PlayerMovement playerMovement;
+    private PlayerMovement _movement;
 
     public bool IsGrab {get; private set;}
     public GameObject PnjGrabbed {get; private set;}
 
     private void Awake () {
         rb = GetComponent<Rigidbody2D>();
-        playerMovement = GetComponent<Player.PlayerMovement>();
-        
+        _movement = GetComponent<PlayerMovement>();
     }
 
     private void Start () {
@@ -41,28 +40,21 @@ public class PlayerGrab : MonoBehaviour
         if(ctx.ReadValueAsButton()) {
             GameObject pnjSelected = pnjSelection.SelectedPnj;
             if(!pnjSelected) return;
-            
-            InputManager.Input.Spider.Web.Disable();
-            InputManager.Input.Spider.Swing.Disable();
-            InputManager.Input.Spider.Slide.Disable();
 
             Grab(pnjSelected);
         }else{
             if(!IsGrab) return;
 
             UnGrab();
-            
-            InputManager.Input.Spider.Web.Enable();
-            InputManager.Input.Spider.Swing.Enable();
-            InputManager.Input.Spider.Slide.Enable();
         }
     }
 
     private void Grab (GameObject pnj) {
+        _movement.KeepWeb();
         rb.isKinematic = true;
         rb.velocity = Vector3.zero;
         animator.SetBool("IsGrab", true);
-        playerMovement.enabled = false;
+        _movement.enabled = false;
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, pnj.transform.position - transform.position, 100f, LayerMask.GetMask("PasserbyLayer"));
         if (hit.collider != null) {
@@ -78,15 +70,26 @@ public class PlayerGrab : MonoBehaviour
 
         PnjGrabbed = pnj;
         IsGrab = true;
+
+        InputManager.Input.Spider.Web.Disable();
+        InputManager.Input.Spider.Swing.Disable();
+        InputManager.Input.Spider.Slide.Disable();
     }
 
     public void UnGrab () {
+        _movement.DontKeepWeb();
         rb.isKinematic = false;
+        rb.velocity = Vector2.zero;
         animator.SetBool("IsGrab", false);
-        playerMovement.enabled = true;
+        _movement.enabled = true;
+        
         npcCursor?.ShowNPC(null);
 
         PnjGrabbed = null;
         IsGrab = false;
+
+        InputManager.Input.Spider.Web.Enable();
+        InputManager.Input.Spider.Swing.Enable();
+        InputManager.Input.Spider.Slide.Enable();
     }
 }

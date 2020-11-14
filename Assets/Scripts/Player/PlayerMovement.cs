@@ -21,13 +21,19 @@ namespace Player {
         [SerializeField] private Animator animator;
 
         // PRIVATE-PRIVATE
-        private bool onWeb = true; // TODO: dynamically change
+        private bool OnWeb => anchor.activeSelf;
+        
+        // used to ensure the web is not cut when grabbing a NPC
+        private bool keepWeb = false;
         private Vector2 AnchorPoint => anchor.transform.position;
 
-        private Vector2 Position {
+        public Vector2 Position {
             get => transform.position;
-            set => transform.position = value;
+            private set => transform.position = value;
         }
+
+        public LayerMask WebRaycastLayer => webRaycastLayer;
+
         private Rigidbody2D _rigidbody;
         private SpringJoint2D _springJoint;
         private WebRenderer _webRenderer;
@@ -36,6 +42,7 @@ namespace Player {
         private bool shouldShootWeb;
         private bool shouldCutWeb;
         private float shootingAngle;
+        private Vector2 firstAnchorPosition;
         private static readonly int SwingDirection = Animator.StringToHash("SwingDirection");
         private static readonly int SlideDirection = Animator.StringToHash("SlideDirection");
 
@@ -53,6 +60,8 @@ namespace Player {
             // don't show ghost anchor
             ghostAnchor.SetActive(false);
             AnchorTo(AnchorPoint);
+
+            firstAnchorPosition = new Vector2(AnchorPoint.x, AnchorPoint.y); // copy
         }
 
         private void OnDestroy() {
@@ -78,7 +87,7 @@ namespace Player {
             animator.SetFloat(SlideDirection, 0.0f);
             
             // swing spider
-            if (onWeb) {
+            if (OnWeb) {
                 float horizontalInput = swingInput;
 
                 Vector2 positionToAnchor = AnchorPoint - Position;
@@ -135,21 +144,21 @@ namespace Player {
             }
         }
 
-        private void CutWeb() {
+        public void CutWeb() {
             _webRenderer.DestroyWeb();
             _webRenderer.enabled = false;
             _springJoint.enabled = false;
             anchor.SetActive(false);
         }
 
-        private void AnchorTo(Vector2 point) {
-            anchor.SetActive(true);
-            _springJoint.enabled = true;
-            _webRenderer.enabled = true;
-
+        public void AnchorTo(Vector2 point) {
             anchor.transform.position = point;
             _springJoint.distance = (AnchorPoint - Position).magnitude;
             _webRenderer.CreateWeb(AnchorPoint);
+            
+            _springJoint.enabled = true;
+            _webRenderer.enabled = true;
+            anchor.SetActive(true);
         }
 
         private void OnSwing (InputAction.CallbackContext ctx)  {
@@ -163,11 +172,27 @@ namespace Player {
         }
         
         private void OnShootWeb(InputAction.CallbackContext ctx) {
-            shouldShootWeb = true;
+            if (!keepWeb) {
+                shouldShootWeb = true;
+            }
         }
         
         private void OnCutWeb(InputAction.CallbackContext ctx) {
-            shouldCutWeb = true;
+            if (!keepWeb) {
+                shouldCutWeb = true;    
+            }
+        }
+
+        public void ResetToFirstAnchor() {
+            AnchorTo(firstAnchorPosition);
+        }
+
+        public void DontKeepWeb() {
+            keepWeb = false;
+        }
+        
+        public void KeepWeb() {
+            keepWeb = true;
         }
     }
 }
