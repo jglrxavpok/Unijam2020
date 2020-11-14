@@ -19,6 +19,14 @@ public class @Controls : IInputActionCollection, IDisposable
             ""id"": ""dbeb539e-d6b5-43d1-8a8e-056bc85d11f1"",
             ""actions"": [
                 {
+                    ""name"": ""Aim"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""fe29f072-1eae-4ef2-8cec-c2e4253aec64"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Web"",
                     ""type"": ""Button"",
                     ""id"": ""fa8f3748-1fab-46ec-bb6d-4bd2ae231323"",
@@ -255,6 +263,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Bite"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cab9e3d8-fb0e-46fd-a2d0-02c17855800a"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c8cef95b-694e-4bbe-9110-ff7965ab3bd6"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -821,6 +851,7 @@ public class @Controls : IInputActionCollection, IDisposable
 }");
         // Spider
         m_Spider = asset.FindActionMap("Spider", throwIfNotFound: true);
+        m_Spider_Aim = m_Spider.FindAction("Aim", throwIfNotFound: true);
         m_Spider_Web = m_Spider.FindAction("Web", throwIfNotFound: true);
         m_Spider_Swing = m_Spider.FindAction("Swing", throwIfNotFound: true);
         m_Spider_Slide = m_Spider.FindAction("Slide", throwIfNotFound: true);
@@ -890,6 +921,7 @@ public class @Controls : IInputActionCollection, IDisposable
     // Spider
     private readonly InputActionMap m_Spider;
     private ISpiderActions m_SpiderActionsCallbackInterface;
+    private readonly InputAction m_Spider_Aim;
     private readonly InputAction m_Spider_Web;
     private readonly InputAction m_Spider_Swing;
     private readonly InputAction m_Spider_Slide;
@@ -899,6 +931,7 @@ public class @Controls : IInputActionCollection, IDisposable
     {
         private @Controls m_Wrapper;
         public SpiderActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Aim => m_Wrapper.m_Spider_Aim;
         public InputAction @Web => m_Wrapper.m_Spider_Web;
         public InputAction @Swing => m_Wrapper.m_Spider_Swing;
         public InputAction @Slide => m_Wrapper.m_Spider_Slide;
@@ -913,6 +946,9 @@ public class @Controls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_SpiderActionsCallbackInterface != null)
             {
+                @Aim.started -= m_Wrapper.m_SpiderActionsCallbackInterface.OnAim;
+                @Aim.performed -= m_Wrapper.m_SpiderActionsCallbackInterface.OnAim;
+                @Aim.canceled -= m_Wrapper.m_SpiderActionsCallbackInterface.OnAim;
                 @Web.started -= m_Wrapper.m_SpiderActionsCallbackInterface.OnWeb;
                 @Web.performed -= m_Wrapper.m_SpiderActionsCallbackInterface.OnWeb;
                 @Web.canceled -= m_Wrapper.m_SpiderActionsCallbackInterface.OnWeb;
@@ -932,6 +968,9 @@ public class @Controls : IInputActionCollection, IDisposable
             m_Wrapper.m_SpiderActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @Aim.started += instance.OnAim;
+                @Aim.performed += instance.OnAim;
+                @Aim.canceled += instance.OnAim;
                 @Web.started += instance.OnWeb;
                 @Web.performed += instance.OnWeb;
                 @Web.canceled += instance.OnWeb;
@@ -1109,6 +1148,7 @@ public class @Controls : IInputActionCollection, IDisposable
     }
     public interface ISpiderActions
     {
+        void OnAim(InputAction.CallbackContext context);
         void OnWeb(InputAction.CallbackContext context);
         void OnSwing(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);

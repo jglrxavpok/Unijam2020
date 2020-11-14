@@ -6,6 +6,14 @@
             "id": "dbeb539e-d6b5-43d1-8a8e-056bc85d11f1",
             "actions": [
                 {
+                    "name": "Aim",
+                    "type": "PassThrough",
+                    "id": "fe29f072-1eae-4ef2-8cec-c2e4253aec64",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Web",
                     "type": "Button",
                     "id": "fa8f3748-1fab-46ec-bb6d-4bd2ae231323",
@@ -242,6 +250,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Bite",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cab9e3d8-fb0e-46fd-a2d0-02c17855800a",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c8cef95b-694e-4bbe-9110-ff7965ab3bd6",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
