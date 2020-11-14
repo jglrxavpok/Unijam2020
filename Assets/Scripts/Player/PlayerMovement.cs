@@ -18,9 +18,10 @@ namespace Player {
         [SerializeField] private SpriteRenderer _renderer;
         [SerializeField] private LayerMask webRaycastLayer;
         [SerializeField] private Animator animator;
+        [SerializeField] private Transform aimCursor;
 
         // PRIVATE-PRIVATE
-        private bool OnWeb => anchor.activeSelf;
+        private bool OnWeb => _anchorSprite.enabled;
         
         // used to ensure the web is not cut when grabbing a NPC
         private bool keepWeb = false;
@@ -32,6 +33,9 @@ namespace Player {
         }
 
         public LayerMask WebRaycastLayer => webRaycastLayer;
+
+        private SpriteRenderer _anchorSprite;
+        private SpriteRenderer _ghostAnchorSprite;
 
         private Rigidbody2D _rigidbody;
         private SpringJoint2D _springJoint;
@@ -54,10 +58,13 @@ namespace Player {
             _rigidbody = GetComponent<Rigidbody2D>();
             _springJoint = GetComponent<SpringJoint2D>();
 
+            _anchorSprite = anchor.GetComponent<SpriteRenderer>();
+            _ghostAnchorSprite = ghostAnchor.GetComponent<SpriteRenderer>();
+
             _webRenderer = GetComponentInChildren<WebRenderer>();
 
             // don't show ghost anchor
-            ghostAnchor.SetActive(false);
+            _ghostAnchorSprite.enabled = false;
             AnchorTo(AnchorPoint);
 
             firstAnchorPosition = new Vector2(AnchorPoint.x, AnchorPoint.y); // copy
@@ -123,14 +130,23 @@ namespace Player {
                 animator.SetFloat(SlideDirection, slideInput);
             }
             
-            // update ghost anchor position
-            Vector2 castDirection = new Vector2(Mathf.Cos(shootingAngle*Mathf.Deg2Rad), Mathf.Sin(shootingAngle*Mathf.Deg2Rad));
+            // update ghost anchor position (old version)
+            /*Vector2 castDirection = new Vector2(Mathf.Cos(shootingAngle*Mathf.Deg2Rad), Mathf.Sin(shootingAngle*Mathf.Deg2Rad));
             var hit = Physics2D.Raycast(Position, castDirection, webRaycastDistance, webRaycastLayer.value);
             if (hit.collider != null && hit.collider.gameObject != null) {
                 ghostAnchor.SetActive(true);
                 ghostAnchor.transform.position = hit.point;
             } else {
                 ghostAnchor.SetActive(false);
+            }*/
+
+            Vector2 castDirection = aimCursor.position - transform.position;
+            var hit = Physics2D.Raycast(Position, castDirection, webRaycastDistance, webRaycastLayer.value);
+            if (hit.collider != null && hit.collider.gameObject != null) {
+                _ghostAnchorSprite.enabled = true;
+                ghostAnchor.transform.position = hit.point;
+            } else {
+                _ghostAnchorSprite.enabled = false;
             }
         }
 
@@ -147,17 +163,17 @@ namespace Player {
             _webRenderer.DestroyWeb();
             _webRenderer.enabled = false;
             _springJoint.enabled = false;
-            anchor.SetActive(false);
+            _anchorSprite.enabled = false;
         }
 
         public void AnchorTo(Vector2 point) {
             anchor.transform.position = point;
-            _springJoint.distance = (AnchorPoint - Position).magnitude;
+            _springJoint.enabled = true;
+            _springJoint.distance = (AnchorPoint - Position).magnitude * 0.7f;
             _webRenderer.CreateWeb(AnchorPoint);
             
-            _springJoint.enabled = true;
             _webRenderer.enabled = true;
-            anchor.SetActive(true);
+            _anchorSprite.enabled = true;
         }
 
         private void OnSwing (InputAction.CallbackContext ctx)  {

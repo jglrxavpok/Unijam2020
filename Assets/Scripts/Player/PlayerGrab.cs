@@ -90,7 +90,7 @@ public class PlayerGrab : MonoBehaviour
     }
 
 
-    private void UnGrab () {
+    public void UnGrab () {
         _npcMovement = null;
         pnjGrab = null;
         _movement.DontKeepWeb();

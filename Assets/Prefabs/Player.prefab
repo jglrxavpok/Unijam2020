@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 1868470826}
   - component: {fileID: 1868470828}
   - component: {fileID: 1868470827}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Web
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,6 @@ GameObject:
   - component: {fileID: 8657297015961290256}
   - component: {fileID: 8657297015961290257}
   - component: {fileID: 1219923215}
-  - component: {fileID: 1358792795}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -405,7 +404,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3.4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -428,7 +427,7 @@ SpringJoint2D:
   m_Anchor: {x: 0, y: 0}
   m_ConnectedAnchor: {x: 0, y: 0}
   m_AutoConfigureDistance: 1
-  m_Distance: 0.005
+  m_Distance: 4.36
   m_DampingRatio: 0
   m_Frequency: 1
 --- !u!114 &8657297015961290256
@@ -443,21 +442,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ef7d6adadbdf84db381e62ed43cd42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torqueFactor: 0.5
+  torqueFactor: 2
   webRaycastDistance: 10
   swingInputDeadzone: 0.1
   slideSpeed: 1
   minDistanceFromAnchor: 1
   maxDistanceFromAnchor: 10
-  anchor: {fileID: 5159084519165499692, guid: 87752fbd9a68a434eae1a1121a9be2bd, type: 3}
-  ghostAnchor: {fileID: 1346125760296104244, guid: e5b6728713014a041b371b48bc65689b,
-    type: 3}
+  anchor: {fileID: 0}
+  ghostAnchor: {fileID: 0}
   debugArrow: {fileID: 8657297016122892634}
   _renderer: {fileID: 8657297017798799619}
   webRaycastLayer:
     serializedVersion: 2
     m_Bits: 256
   animator: {fileID: 1598732647522293645}
+  aimCursor: {fileID: 1398375461}
 --- !u!58 &8657297015961290257
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -490,19 +489,7 @@ MonoBehaviour:
   pnjSelection: {fileID: 630050255}
   animator: {fileID: 1598732647522293645}
   sprite: {fileID: 8657297017798799619}
-  npcCursor: {fileID: 0}
---- !u!114 &1358792795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8657297015961290251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 045fe67f4443f414a94fac8813b5d101, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  npcCursor: {fileID: 7056058789232479305}
 --- !u!1 &8657297016122892634
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,7 +500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8657297016122892636}
   - component: {fileID: 8657297016122892635}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DebugArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,7 +582,7 @@ GameObject:
   - component: {fileID: 8657297017798799618}
   - component: {fileID: 8657297017798799619}
   - component: {fileID: 1598732647522293645}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Render
   m_TagString: Untagged
   m_Icon: {fileID: 0}

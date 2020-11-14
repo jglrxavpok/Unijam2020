@@ -20,7 +20,7 @@ public class @Controls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Aim"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""fe29f072-1eae-4ef2-8cec-c2e4253aec64"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -71,7 +71,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""47cab2d2-fe0b-4654-ba83-9a7e48d3c415"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -82,7 +82,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""81dec88f-92a8-4b90-8e4c-37cc1d03bc60"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -116,6 +116,39 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""name"": ""Positive"",
                     ""id"": ""3125b681-0de6-491b-9ddc-98122b0ac2f6"",
                     ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Swing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""8af5c3de-2528-46c9-9e76-bd88aed518ab"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Swing"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Negative"",
+                    ""id"": ""a6a10a4c-a804-4a3a-8291-0e164ef05b0b"",
+                    ""path"": ""<Keyboard>/#(Q)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Swing"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Positive"",
+                    ""id"": ""b9f6cad2-c292-41fc-ae5d-524a2a3b24a1"",
+                    ""path"": ""<Keyboard>/#(D)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -191,6 +224,39 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""1D Axis"",
+                    ""id"": ""e4456547-8e4e-4945-8018-ded714276696"",
+                    ""path"": ""1DAxis(whichSideWins=1)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slide"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Negative"",
+                    ""id"": ""7ef4527d-dfc4-421e-baa4-73a62bc30cdb"",
+                    ""path"": ""<Keyboard>/#(S)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Positive"",
+                    ""id"": ""94eb8d71-cecf-4615-99f8-858f30a9842e"",
+                    ""path"": ""<Keyboard>/#(Z)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
                     ""id"": ""c4be5312-a682-4dbd-905f-38a0b91e858b"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
@@ -225,7 +291,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c27a2a45-ab54-4138-8482-0ce4e51034b7"",
-                    ""path"": ""<Keyboard>/#(A)"",
+                    ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -247,7 +313,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b1a67316-cc5e-4d29-af4b-04d1eb9c9464"",
-                    ""path"": ""<Keyboard>/#(Z)"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
@@ -258,7 +324,7 @@ public class @Controls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""02a84e98-055d-4a2b-b360-17b9a514bb25"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -398,6 +464,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""8d383ba1-23de-498a-b721-9d6deadc4b72"",
                     ""expectedControlType"": ""Quaternion"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Switch Thought Type"",
+                    ""type"": ""Button"",
+                    ""id"": ""707e75e2-7f78-453f-abd4-264f06487511"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 }
@@ -820,6 +894,72 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""TrackedDeviceOrientation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""f5aa299c-34da-4d08-98e1-652727bcbb78"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch Thought Type"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""689b6ec3-0686-4bf2-a77c-4e8060f0d2f1"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Switch Thought Type"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""1bf12237-96bb-45ef-bc5b-d2aac699e26e"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Switch Thought Type"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""931f7369-a8ef-4261-9c76-a258b2df32d6"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch Thought Type"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""784acc81-26c2-4761-aa63-3197c76fd0e6"",
+                    ""path"": ""<XInputController>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Switch Thought Type"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""5ff95a38-e476-4b85-8252-fb619fcfafdc"",
+                    ""path"": ""<XInputController>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Switch Thought Type"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -872,6 +1012,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        m_UI_SwitchThoughtType = m_UI.FindAction("Switch Thought Type", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1037,6 +1178,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_RightClick;
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
+    private readonly InputAction m_UI_SwitchThoughtType;
     public struct UIActions
     {
         private @Controls m_Wrapper;
@@ -1051,6 +1193,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @RightClick => m_Wrapper.m_UI_RightClick;
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
+        public InputAction @SwitchThoughtType => m_Wrapper.m_UI_SwitchThoughtType;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1090,6 +1233,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @TrackedDeviceOrientation.started -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnTrackedDeviceOrientation;
+                @SwitchThoughtType.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitchThoughtType;
+                @SwitchThoughtType.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitchThoughtType;
+                @SwitchThoughtType.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitchThoughtType;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1124,6 +1270,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @TrackedDeviceOrientation.started += instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.performed += instance.OnTrackedDeviceOrientation;
                 @TrackedDeviceOrientation.canceled += instance.OnTrackedDeviceOrientation;
+                @SwitchThoughtType.started += instance.OnSwitchThoughtType;
+                @SwitchThoughtType.performed += instance.OnSwitchThoughtType;
+                @SwitchThoughtType.canceled += instance.OnSwitchThoughtType;
             }
         }
     }
@@ -1171,5 +1320,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnRightClick(InputAction.CallbackContext context);
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+        void OnSwitchThoughtType(InputAction.CallbackContext context);
     }
 }
