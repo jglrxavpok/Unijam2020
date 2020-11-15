@@ -1958,8 +1958,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900049019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 50, y: -3.4, z: -1}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 52.629, y: -2.992, z: -1}
+  m_LocalScale: {x: 0.5566246, y: 0.5566246, z: 0.5566246}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 22
@@ -2397,6 +2397,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8657297015961290253, guid: fe0f7e76214748a45b188f7129e3728f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657297015961290253, guid: fe0f7e76214748a45b188f7129e3728f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657297015961290253, guid: fe0f7e76214748a45b188f7129e3728f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8657297015961290255, guid: fe0f7e76214748a45b188f7129e3728f,
         type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -2412,6 +2427,11 @@ PrefabInstance:
       propertyPath: ghostAnchor
       value: 
       objectReference: {fileID: 130053497}
+    - target: {fileID: 8657297016122892635, guid: fe0f7e76214748a45b188f7129e3728f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe0f7e76214748a45b188f7129e3728f, type: 3}
 --- !u!4 &1314308253 stripped

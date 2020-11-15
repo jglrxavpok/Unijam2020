@@ -445,7 +445,7 @@ MonoBehaviour:
   torqueFactor: 2
   webRaycastDistance: 10
   swingInputDeadzone: 0.1
-  slideSpeed: 2
+  slideSpeed: 3
   minDistanceFromAnchor: 1
   maxDistanceFromAnchor: 9
   anchor: {fileID: 0}
