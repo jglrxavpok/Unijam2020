@@ -1481,8 +1481,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 80, y: 15}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 400, y: 20.8}
+  m_SizeDelta: {x: 800, y: 41.574486}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1401008608
 MonoBehaviour:
@@ -1505,19 +1505,22 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: dd1fb357452c75941a001019b33b12eb, type: 3}
-    m_FontSize: 14
+    m_FontSize: 17
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '   Begue Olivier,  Brandi Matteo, Degand Jonathan, Lamiaux Remi,  Meaux
-    St Marc Philippine, Niochaut Xavier, Serandour Gwendoline'
+  m_Text: 'Begue Olivier "Jed",  Brandi Matteo "Altreon", Degand Jonathan "Jirachi75",
+    Lamiaux Remi "rene",
+
+    Meaux St Marc Philippine "Uranoscope", Niochaut Xavier
+    "jglrxavpok", Serandour Gwendoline "gwen"'
 --- !u!222 &1401008609
 CanvasRenderer:
   m_ObjectHideFlags: 0
