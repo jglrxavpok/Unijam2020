@@ -1501,10 +1501,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1868470828, guid: fe0f7e76214748a45b188f7129e3728f, type: 3}
-      propertyPath: m_Parameters.numCapVertices
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7056058789232479305, guid: fe0f7e76214748a45b188f7129e3728f,
         type: 3}
       propertyPath: uiCanvas
@@ -1575,21 +1571,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8657297015961290253, guid: fe0f7e76214748a45b188f7129e3728f,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657297015961290253, guid: fe0f7e76214748a45b188f7129e3728f,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8657297015961290253, guid: fe0f7e76214748a45b188f7129e3728f,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.3
-      objectReference: {fileID: 0}
     - target: {fileID: 8657297015961290255, guid: fe0f7e76214748a45b188f7129e3728f,
         type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -1605,11 +1586,6 @@ PrefabInstance:
       propertyPath: ghostAnchor
       value: 
       objectReference: {fileID: 130053497}
-    - target: {fileID: 8657297016122892635, guid: fe0f7e76214748a45b188f7129e3728f,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe0f7e76214748a45b188f7129e3728f, type: 3}
 --- !u!4 &1314308253 stripped
