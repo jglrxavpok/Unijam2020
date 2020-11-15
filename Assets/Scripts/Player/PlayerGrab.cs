@@ -71,7 +71,13 @@ public class PlayerGrab : MonoBehaviour
         if (hit.collider != null) {
 
             if(hit.collider.bounds.Contains(transform.position)){
-                transform.position = hit.collider.transform.position;
+                //transform.position = hit.collider.transform.position;
+                NPC.PasserbyDescription passer = hit.collider.GetComponent<NPC.PasserbyDescription>();
+                if(passer){
+                    transform.position = passer.Center.position;
+                }else{
+                    transform.position = hit.collider.transform.position;
+                }
                 sprite.gameObject.transform.rotation = Quaternion.Euler(0, 0, 180);
                 animator.SetBool("InsidePnj", true);
             }else{
