@@ -2,12 +2,14 @@
 {
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        [PerRendererData]_MainTex ("Texture", 2D) = "white" {}
+        [PerRendererData]_VertexColor ("VertexColor", Color) = (1,1,1,1)
         _OutlineWidth ("Width", Float) = 0.2
         _OutlineColor ("Color", Color) = (1,1,1,1)
     }
     SubShader
     {
+        ZWrite Off
         Tags { "Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True" }
         LOD 100
         Blend SrcAlpha OneMinusSrcAlpha
@@ -36,6 +38,7 @@
 
             float _OutlineWidth;
             float4 _OutlineColor;
+            float4 _VertexColor;
             sampler2D _MainTex;
             float4 _MainTex_ST;
             float4 _MainTex_TexelSize;
@@ -81,7 +84,7 @@
 
                 if(originalColor.a > 0.8)
                 {
-                    return originalColor;
+                    return originalColor * _VertexColor;
                 }
                 if(edge.a > 0.001)
                 {

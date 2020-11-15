@@ -4,12 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
+
+/// <summary>
+/// Map les events de l'InputManager sur des changements de niveau
+/// et fournit des méthode pour jouer les sons 
+/// </summary>
 public class LevelLoader : MonoBehaviour
 {
+    public Animator animator;
+
+    private string _level;
     private void Start()
     {
         InputManager.Input.UI.Cancel.performed += Back;
+        AudioBox.Instance.PlaySoundLoop(SoundLoop.MainMenu);
     }
 
     private void Back(InputAction.CallbackContext ctx)
@@ -31,7 +41,26 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
-        Debug.Log($"Loading {levelName}");
-        SceneManager.LoadScene(levelName);
+        _level = levelName;
+        AudioBox.Instance.PlaySoundOneShot(SoundOneShot.ButtonClick);
+        if (animator != null)
+        {
+            animator.SetTrigger("FadeOutTrigger");
+        }
+        else
+        {
+            OnFadeComplete();
+        }
+    }
+
+    public void OnFadeComplete()
+    {
+        Debug.Log($"Loading {_level}");
+        SceneManager.LoadScene(_level);
+    }
+
+    public void PlaySwitchSound()
+    {
+        AudioBox.Instance.PlaySoundOneShot(SoundOneShot.SpiderSwitchEmotion);
     }
 }

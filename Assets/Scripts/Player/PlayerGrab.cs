@@ -69,10 +69,18 @@ public class PlayerGrab : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, pnj.transform.position - transform.position, 100f, LayerMask.GetMask("PasserbyLayer"));
         if (hit.collider != null) {
-            float z = Vector3.Angle(transform.up, hit.normal);
-            if(hit.normal.x > 0) z *= -1;
-            sprite.gameObject.transform.rotation = Quaternion.Euler(0, 0, z);
-            transform.position = hit.point + hit.normal * grabOffsetPos;
+
+            if(hit.collider.bounds.Contains(transform.position)){
+                transform.position = hit.collider.transform.position;
+                sprite.gameObject.transform.rotation = Quaternion.Euler(0, 0, 180);
+                animator.SetBool("InsidePnj", true);
+            }else{
+                float z = Vector3.Angle(transform.up, hit.normal);
+                if(hit.normal.x > 0) z *= -1;
+                sprite.gameObject.transform.rotation = Quaternion.Euler(0, 0, z);
+                transform.position = hit.point + hit.normal * grabOffsetPos;
+                animator.SetBool("InsidePnj", false);
+            }
         }else{
             transform.LookAt(Vector2.up);
         }
