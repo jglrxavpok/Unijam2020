@@ -64,7 +64,7 @@ public class NPCVisual : MonoBehaviour {
         arms.sprite = arm;
         Color[] skinTones = new Color[] {new Color	((float)45 / 255, (float)34/ 255, (float)30/ 255), 
             new Color	((float)26/255, (float)17/255, (float)6/255), new Color	((float)66/255, (float)43/255, (float)15/255), 
-            new Color	((float)135/255, (float)103/255, (float)90/255), new Color	((float)165/255, (float)126/255, (float)110/255), 
+            new Color	((float)135/255, (float)103/255, (float)90/255), new Color	((float)165/255, (float)120/255, (float)105/255), 
             new Color	((float)195/255, (float)149/255, (float)130/255), new Color	((float)225/255, (float)172/255, (float)150/255), 
             new Color	((float)255/255, (float)195/255, (float)170/255), new Color	((float)225/255, (float)218/255, (float)190/255)
         };
