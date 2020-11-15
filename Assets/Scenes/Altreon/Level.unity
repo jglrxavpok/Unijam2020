@@ -2535,7 +2535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 169d76494a9ad8f40ad112430a75dec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 30
+  time: 45
   running: 1
   prefix: 'Prochain metro: '
 --- !u!114 &1380026640
