@@ -10,7 +10,9 @@ namespace NPC {
         [SerializeField] private string judgment;
         [SerializeField] private string desire;
         [SerializeField] private Sprite facePhoto;
-        [SerializeField] private float score;
+        [SerializeField] private int score;
+        private int tastePositivity;
+        private string thing;
 
         private bool alreadyBitten = false;
 
@@ -46,7 +48,7 @@ namespace NPC {
         public string FirstName => firstName;
         public string Name => name;
 
-        public float Score {
+        public int Score {
             get => score;
             set => score = value;
         }
@@ -65,6 +67,16 @@ namespace NPC {
         public string Intention {
             get => intention;
             set => intention = value;
+        }
+
+        public int TastePositivity { 
+            get => tastePositivity; 
+            set => tastePositivity = value; 
+        }
+        public string Thing
+        {
+            get => thing;
+            set => thing = value;
         }
 
         public bool HasBeenBitten() {

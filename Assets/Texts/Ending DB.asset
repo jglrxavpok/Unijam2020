@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbe788ee66035714e9d2b1f849409fba, type: 3}
+  m_Name: Ending DB
+  m_EditorClassIdentifier: 
+  themes:
+  - theme: 0
+    appreciations:
+    - appreciation: 0
+      alignments:
+      - alignment: 0
+        endingMessage: "Un sourire charmeur, un corps d'athl\xE8te, mais qui est
+          donc ce nouveau d\xE9fenseur qui soul\xE8ve des super-fontes ? Du jour
+          au lendemain, il est arriv\xE9 pour nous proposer des s\xE9ances de coaching
+          personnalis\xE9e et arr\xEAter le crime dans le m\xEAme temps. Quel H\xE9ros
+          !"
+      - alignment: 1
+        endingMessage: "Un fl\xE9au terrible s'abat sur notre ville, un super-criminel
+          s\xE8me le chaos. En plus de \xE7a, il est super-muscl\xE9, c'est un habitu\xE9
+          des salles de sport. Il veut r\xE9former l'activit\xE9 physique de tous
+          les citoyens et nous mettant au sport. Au secours !"
+    - appreciation: 1
+      alignments:
+      - alignment: 0
+        endingMessage: "Un myst\xE9rieux super-h\xE9ros \xE0 l'apparence fragile
+          a fait son apparition en ville. Il utilise ses pouvoirs pour r\xE9tablir
+          la paix parmi nous. En revanche, il n'intervient pas toujours tr\xE8s vite
+          surtout s'il est \xE0 longue distance. Il semblerait qu'il ne soit pas
+          v\xE9hicul\xE9 et qu'il manque un peu d'endurance. D'ailleurs, il va souvent
+          devant les salles de sport pour se moquer des adh\xE9rents..."
+      - alignment: 1
+        endingMessage: "Plus de musculation, de gymnastique ou m\xEAme de jogging
+          dans les parcs. Un super-individu malveillant terrorise les sportifs partout
+          en ville. Il aurait d\xE9clar\xE9 \"Les muscles c'est pour les faibles\"..."

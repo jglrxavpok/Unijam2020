@@ -5,6 +5,7 @@ public class BitingSystem {
 
     public delegate void BiteCountChangeEventHandler(int count);
 
+    
     // Declare the event.
     public event BiteCountChangeEventHandler BiteCountChange;
     
@@ -20,7 +21,9 @@ public class BitingSystem {
     }
 
     private int allowedBites;
-    private float totalScore;
+    private int totalScore;
+    private GameState gameState;
+
 
     private BitingSystem() {
         Reset();
@@ -28,16 +31,20 @@ public class BitingSystem {
 
     public void Reset() {
         allowedBites = 3;
-        totalScore = 0f;
+        totalScore = 0;
+        gameState = GameObject.Find("GameState").GetComponent<GameState>();
     }
 
-    public void OnBite(float npcMoralityScore) {
+    public void OnBite(int npcMoralityScore, int tastePositivity, string thing) 
+    {
         if(allowedBites <= 0)
             return;
         totalScore += npcMoralityScore;
+        gameState.SaveBittenNPCInfos(npcMoralityScore, tastePositivity, thing);
+        
         allowedBites--;
         BiteCountChange?.Invoke(allowedBites);
-        Debug.Log("Allowed bites: "+allowedBites);
+        //Debug.Log("Allowed bites: "+allowedBites);
         if (allowedBites == 0) {
             // trigger round end
             // TODO: change contents based on morality score
@@ -45,11 +52,13 @@ public class BitingSystem {
         }
     }
 
-    public float GetTotalScore() {
+    public float GetTotalScore()
+    {
         return totalScore;
     }
 
-    public int GetRemainingBites() {
+    public int GetRemainingBites()
+    {
         return allowedBites;
     }
 }

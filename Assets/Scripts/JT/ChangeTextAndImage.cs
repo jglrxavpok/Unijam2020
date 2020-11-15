@@ -13,8 +13,12 @@ public class ChangeTextAndImage : MonoBehaviour {
    [SerializeField] 
    private Text scrollingText;
    
-   public void setScrollingText(String text) {
-      scrollingText.text = text;
+   public void setScrollingText(string text) {
+      if (text.Length != 0)
+      {
+            scrollingText.text = text;
+      }
+      
    }
 
    public void setInfoTitle(String text) {

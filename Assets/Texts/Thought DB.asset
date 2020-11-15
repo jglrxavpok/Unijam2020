@@ -82,8 +82,6 @@ MonoBehaviour:
     positivity: -2
   - content: le feu
     positivity: -2
-  - content: la vie
-    positivity: 3
   - content: la musique
     positivity: 1
   - content: les gens
