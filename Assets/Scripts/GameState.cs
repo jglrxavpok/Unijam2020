@@ -6,7 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour
 {
-
+    private static GameState instance;
+    public static GameState Instance => instance;
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     public struct BittenNPCInfos
     {
         public int moralityScore;
