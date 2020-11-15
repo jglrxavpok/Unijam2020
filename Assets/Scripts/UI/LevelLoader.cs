@@ -19,6 +19,7 @@ public class LevelLoader : MonoBehaviour
     private void Start()
     {
         InputManager.Input.UI.Cancel.performed += Back;
+        AudioBox.Instance.PlaySoundLoop(SoundLoop.MainMenu);
     }
 
     private void Back(InputAction.CallbackContext ctx)
