@@ -57,6 +57,7 @@ public class GameState : MonoBehaviour
                 changer.setScrollingText("");
             }
             changer.setBackgroundColor(totalScore > 0);
+            changer.setInfoTitle(totalScore > 0);
             changer.setImage(totalScore > 0);
             Debug.Log("TotalPositivity : " + totalScore);
             StartCoroutine("ReloadMenu", 60f);
