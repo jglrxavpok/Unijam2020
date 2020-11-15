@@ -86,16 +86,12 @@ MonoBehaviour:
     - appreciation: 1
       alignments:
       - alignment: 0
-        endingMessage: "Un myst\xE9rieux super-h\xE9ros \xE0 l'apparence fragile
-          a fait son apparition en ville. Il utilise ses pouvoirs pour r\xE9tablir
-          la paix parmi nous. En revanche, il n'intervient pas toujours tr\xE8s vite
-          surtout s'il est \xE0 longue distance. Il semblerait qu'il ne soit pas
-          v\xE9hicul\xE9 et qu'il manque un peu d'endurance. D'ailleurs, il va souvent
-          devant les salles de sport pour se moquer des adh\xE9rents..."
+        endingMessage: "Un nouveau super-h\xE9ros est arriv\xE9 dans notre ville.
+          Hourra !"
       - alignment: 1
-        endingMessage: "Plus de musculation, de gymnastique ou m\xEAme de jogging
-          dans les parcs. Un super-individu malveillant terrorise les sportifs partout
-          en ville. Il aurait d\xE9clar\xE9 \"Les muscles c'est pour les faibles\"..."
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
   - theme: 3
     appreciations:
     - appreciation: 0
