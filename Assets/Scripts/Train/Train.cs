@@ -16,12 +16,14 @@ public class Train : MonoBehaviour
 
     private int step = 0;
     private float startPosX = 0;
+    private float zLevel = 0f;
     
     
     private void Awake () {
         audioSource = GetComponent<AudioSource>();
 
         startPosX = transform.position.x;
+        zLevel = transform.position.z;
     }
 
     // Update is called once per frame
@@ -63,7 +65,7 @@ public class Train : MonoBehaviour
         float x = Mathf.Lerp(startPosX, endPosX, t);
 
         audioSource.volume = t;
-        transform.position = new Vector3(x, transform.position.y, 0);
+        transform.position = new Vector3(x, transform.position.y, zLevel);
     }
 
     private void EndTrain () {
