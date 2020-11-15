@@ -22,6 +22,7 @@ namespace NPC {
         private PlayerGrab grabCapability;
         private GameObject[] groups = new GameObject[0];
         private int selectedGroupIndex = 0;
+        private PasserbyDescription currentDescription;
 
         public float Width => _transform.rect.width*_canvas.scaleFactor;
 
@@ -70,10 +71,12 @@ namespace NPC {
 
         private void OnBite(InputAction.CallbackContext ctx) {
             BitingSystem.Instance.OnBite(score);
+            currentDescription.Bite();
             grabCapability.UnGrab();
         }
 
         public void ChangeContents(PasserbyDescription description) {
+            currentDescription = description;
             fullName.text = $"{description.FirstName} {description.Name}";
             thoughtTaste.text = description.Taste;
             thoughtDesire.text = description.Desire;
