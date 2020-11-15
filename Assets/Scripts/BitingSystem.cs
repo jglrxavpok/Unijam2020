@@ -21,7 +21,6 @@ public class BitingSystem {
     }
 
     private int allowedBites;
-    private int totalScore;
     private GameState gameState;
 
 
@@ -31,15 +30,15 @@ public class BitingSystem {
 
     public void Reset() {
         allowedBites = 3;
-        totalScore = 0;
         gameState = GameObject.Find("GameState").GetComponent<GameState>();
+        gameState.totalScore = 0;
     }
 
     public void OnBite(int npcMoralityScore, int tastePositivity, string thing) 
     {
         if(allowedBites <= 0)
             return;
-        totalScore += npcMoralityScore;
+        gameState.totalScore += npcMoralityScore;
         gameState.SaveBittenNPCInfos(npcMoralityScore, tastePositivity, thing);
 
         AudioBox.Instance?.PlaySoundOneShot(SoundOneShot.SpiderBite);
@@ -60,7 +59,7 @@ public class BitingSystem {
 
     public float GetTotalScore()
     {
-        return totalScore;
+        return gameState.totalScore;
     }
 
     public int GetRemainingBites()
