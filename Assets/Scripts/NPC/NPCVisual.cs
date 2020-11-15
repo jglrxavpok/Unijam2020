@@ -147,4 +147,19 @@ public class NPCVisual : MonoBehaviour {
     public Color getHairColor() {
         return haircut.color;
     }
+
+    public Sprite getHairSprite()
+    {
+        return haircut.sprite;
+    }
+
+    public Color getGenderColor()
+    {
+        return gender.color;
+    }
+
+    public Sprite getGenderSprite()
+    {
+        return gender.sprite;
+    }
 }
