@@ -11,6 +11,10 @@ namespace NPC {
         [SerializeField] private string desire;
         [SerializeField] private Sprite facePhoto;
         [SerializeField] private int score;
+
+        [SerializeField] private Transform center = null;
+        public Transform Center {get{return center;}}
+
         private int tastePositivity;
         private string thing;
 
