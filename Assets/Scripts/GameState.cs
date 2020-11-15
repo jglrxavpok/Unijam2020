@@ -16,6 +16,7 @@ public class GameState : MonoBehaviour
 
     public List<BittenNPCInfos> bittenNPCs = new List<BittenNPCInfos>();
 
+    public int totalScore = 0;
     [SerializeField]
     private EndingsDB endingsDB;
 
@@ -31,7 +32,18 @@ public class GameState : MonoBehaviour
         //SceneManager.LoadScene("Main Menu");
         if (scene.name == "JT")
         {
-            GameObject.Find("Canvas").GetComponent<ChangeTextAndImage>().setScrollingText(endingsDB.GetEndingMessage(bittenNPCs[0].thing, bittenNPCs[0].tastePositivity>0, bittenNPCs[0].moralityScore>0));
+            ChangeTextAndImage changer = GameObject.Find("Canvas").GetComponent<ChangeTextAndImage>();
+            changer.noBitten = bittenNPCs.Count == 0;
+            if (bittenNPCs.Count != 0)
+            {
+                changer.setScrollingText(endingsDB.GetEndingMessage(bittenNPCs[0].thing, bittenNPCs[0].tastePositivity > 0, bittenNPCs[0].moralityScore > 0));
+            }
+            else
+            {
+                changer.setScrollingText("");
+            }
+            changer.setBackgroundColor(totalScore > 0);
+            Debug.Log("TotalPositivity : " + totalScore);
             StartCoroutine("ReloadMenu", 60f);
             InputManager.Input.Spider.Web.performed += ReloadMenuCallback;
         }

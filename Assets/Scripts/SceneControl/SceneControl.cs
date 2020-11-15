@@ -29,10 +29,6 @@ public class SceneControl : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start () {
-        ChangeScene("JT");
-    }
-
     public void ChangeScene(string sceneName) {
         if(block) return;
 
