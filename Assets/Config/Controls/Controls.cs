@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Config/Controls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Config/Controls/Controls.inputactions'
 
 using System;
 using System.Collections;
@@ -921,6 +921,39 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""name"": ""positive"",
                     ""id"": ""1bf12237-96bb-45ef-bc5b-d2aac699e26e"",
                     ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Switch Thought Type"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""beec8f36-508c-47ce-96b8-9f3f4b4d40bc"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch Thought Type"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""1fd2047d-a13f-486a-8f5a-3413dc340715"",
+                    ""path"": ""<Keyboard>/#(Q)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Switch Thought Type"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""47d27318-0f15-4aab-82da-7a1d8910c059"",
+                    ""path"": ""<Keyboard>/#(D)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard"",
