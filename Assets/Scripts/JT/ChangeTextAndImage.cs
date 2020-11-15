@@ -79,7 +79,7 @@ public class ChangeTextAndImage : MonoBehaviour {
 
     public void setImage(bool alignment) 
     {
-        if (!noBitten)
+        if (noBitten)
         {
             image.color = Color.clear;
         }
