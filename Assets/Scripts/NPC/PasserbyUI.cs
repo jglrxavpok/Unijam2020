@@ -14,7 +14,8 @@ namespace NPC {
         [SerializeField] private GameObject desireGroup = null;
         [SerializeField] private Text thoughtDesire = null;
         [SerializeField] private Image facePicture = null;
-        
+        [SerializeField] private Image faceHair = null;
+
         private RectTransform _transform;
         private Canvas _canvas;
         private int score = 0;
@@ -87,10 +88,16 @@ namespace NPC {
             thoughtDesire.text = description.Desire;
             thoughtIntention.text = description.Intention;
             thoughtJudgment.text = description.Judgment;
-            facePicture.sprite = description.FacePhoto;
+            
             score = description.Score;
             tastePositivity = description.TastePositivity;
             thing = description.Thing;
+
+            facePicture.sprite = description.GetComponent<NPCVisual>().getGenderSprite();
+            facePicture.color = description.GetComponent<NPCVisual>().getGenderColor();
+            
+            faceHair.sprite = description.GetComponent<NPCVisual>().getHairSprite();
+            faceHair.color = description.GetComponent<NPCVisual>().getHairColor();
         }
     }
 }
