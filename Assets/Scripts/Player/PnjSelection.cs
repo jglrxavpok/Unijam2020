@@ -17,11 +17,25 @@ public class PnjSelection : MonoBehaviour
         var desc = col.GetComponent<PasserbyDescription>();
         if (desc && !desc.HasBeenBitten()) {
             pnjs.Add(col.gameObject);
+            return;
+        }
+
+        GameObject pnj = col.GetComponent<PasserByHead>() ? col.transform.parent.gameObject : null;
+        if (pnj && !pnjs.Contains(pnj)) {
+            pnjs.Add(pnj);
         }
     }
 
     private void OnTriggerExit2D(Collider2D col) {
-        pnjs.Remove(col.gameObject);
+        if (col.GetComponent<PasserbyDescription>()) {
+            pnjs.Remove(col.gameObject);
+            return;
+        }
+
+        GameObject pnj = col.GetComponent<PasserByHead>() ? col.transform.parent.gameObject : null;
+        if (pnj && pnjs.Contains(pnj)) {
+            pnjs.Remove(pnj);
+        }
     }
 
     public GameObject SelectedPnj {
