@@ -47,13 +47,15 @@ MonoBehaviour:
       alignments:
       - alignment: 0
         endingMessage: "Mr. Justice ! C'est ainsi que se fait appeler le nouveau
-          h\xE9ros en ville. Il arr\xEAte les criminels, les juges, les d\xE9fends,
+          h\xE9ros en ville. Il arr\xEAte les criminels, les juge, les d\xE9fend,
           prononce une sentence puis les envoie en prison. Un tel amour de la justice
           \xE7a ne s'invente pas !"
       - alignment: 1
-        endingMessage: "Les tribunaux sont pris d'assauts. Prenez gardes \xE0 vous
-          si vous \xEAtes avocats, juge ou m\xEAme si vous aimez dire \"objection\"
-          il est sans piti\xE9, un v\xE9ritable anarchiste."
+        endingMessage: "Un dangereux super-villain s'est r\xE9v\xE9l\xE9 aujourd'hui
+          ! Restez chez vous autant que possible et barricadez vous. Il n'h\xE9site
+          pas \xE0 faire usage de la violence. Attendez... On m'informe \xE0 l'instant
+          qu'il s'est rendu ! Apparemment il voue un profond amour \xE0 la justice...
+          Fausse Alerte !"
     - appreciation: 1
       alignments:
       - alignment: 0
@@ -64,9 +66,9 @@ MonoBehaviour:
           justice... Il arr\xEAte les d\xE9linquants pour les lib\xE9rer juste apr\xE8s.
           Quel \xE9trange h\xE9ros !"
       - alignment: 1
-        endingMessage: "Les tribunaux sont pris d'assauts. Prenez gardes \xE0 vous
-          si vous \xEAtes avocats, juge ou m\xEAme si vous aimez dire \"objection\"
-          il est sans piti\xE9, un v\xE9ritable anarchiste."
+        endingMessage: "Les tribunaux sont pris d'assaut. Prenez garde \xE0 vous
+          si vous \xEAtes avocats, juges ou m\xEAme si vous aimez dire \"objection\".
+          Il est sans piti\xE9, un v\xE9ritable anarchiste."
   - theme: 2
     appreciations:
     - appreciation: 0
