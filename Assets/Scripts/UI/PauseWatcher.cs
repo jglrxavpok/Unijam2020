@@ -17,6 +17,7 @@ public class PauseWatcher : MonoBehaviour
     void Start()
     {
         InputManager.Input.UI.Cancel.performed += Pause;
+        InputManager.Input.UI.Pause.performed += Pause;
         _player = GameObject.FindWithTag("Player");
         _timer = GameObject.Find("Timer");
     }
@@ -24,11 +25,17 @@ public class PauseWatcher : MonoBehaviour
     private void OnDestroy()
     {
         InputManager.Input.UI.Cancel.performed -= Pause; 
+        InputManager.Input.UI.Pause.performed -= Pause; 
         InputManager.Input.UI.Cancel.performed -= Resume;
+        InputManager.Input.UI.Pause.performed -= Resume;
     }
 
     private void Pause(InputAction.CallbackContext ctx)
     {
+        if (ctx.ReadValue<float>() != 1)
+        {
+            return;
+        }
         _timer.GetComponent<Timer>().running = false;
         transform.GetChild(0).gameObject.SetActive(true);
         _savedVelocity = _player.GetComponent<Rigidbody2D>().velocity;
@@ -41,10 +48,16 @@ public class PauseWatcher : MonoBehaviour
             passer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
         InputManager.Input.UI.Cancel.performed -= Pause;
+        InputManager.Input.UI.Pause.performed -= Pause;
         InputManager.Input.UI.Cancel.performed += Resume;
+        InputManager.Input.UI.Pause.performed += Resume;
     }
     private void Resume(InputAction.CallbackContext ctx)
     {
+        if (ctx.ReadValue<float>() != 1)
+        {
+            return;
+        }
         _timer.GetComponent<Timer>().running = true;
         transform.GetChild(0).gameObject.SetActive(false);
         _player.transform.GetChild(0).GetChild(0).GetComponent<WebRenderer>().enabled = true;
@@ -58,7 +71,9 @@ public class PauseWatcher : MonoBehaviour
 
         }
         InputManager.Input.UI.Cancel.performed += Pause;
+        InputManager.Input.UI.Pause.performed += Pause;
         InputManager.Input.UI.Cancel.performed -= Resume;
+        InputManager.Input.UI.Pause.performed -= Resume;
     }
     
     
