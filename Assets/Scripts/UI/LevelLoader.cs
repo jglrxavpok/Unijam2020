@@ -53,13 +53,19 @@ public class LevelLoader : MonoBehaviour
     {
         _level = levelName;
         AudioBox.Instance.PlaySoundOneShot(SoundOneShot.ButtonClick);
-        if (animator != null)
+        /*if (animator != null)
         {
             animator.SetTrigger("FadeOutTrigger");
         }
         else
         {
             OnFadeComplete();
+        }*/
+
+        if(SceneControl.Instance){
+            SceneControl.Instance.ChangeScene(_level);
+        }else{
+            SceneManager.LoadScene(_level);
         }
     }
 
@@ -67,16 +73,11 @@ public class LevelLoader : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnFadeComplete()
+    /*public void OnFadeComplete()
     {
         Debug.Log($"Loading {_level}");
         //SceneManager.LoadScene(_level);
-        if(SceneControl.Instance){
-            SceneControl.Instance.ChangeScene(_level);
-        }else{
-            SceneManager.LoadScene(_level);
-        }
-    }
+    }*/
 
     public void PlaySwitchSound()
     {
