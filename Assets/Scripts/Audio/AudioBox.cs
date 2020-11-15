@@ -91,8 +91,9 @@ public class AudioBox : MonoBehaviour
     public void StopAllSoundLoop (){
         foreach(AudioSource source in musicSources){
             source.Stop();
-            musicSources.Remove(source);
             Destroy(source);
         }
+
+        musicSources.Clear();
     }
 }
