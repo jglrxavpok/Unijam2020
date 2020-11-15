@@ -58,7 +58,7 @@ public class NPCVisual : MonoBehaviour {
         arm = Resources.Load<Sprite>("NPC/arm");
 
         createNPC();
-        print(gender.color);
+        //print(gender.color);
     }
 
     private void Update() {

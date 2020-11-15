@@ -25,6 +25,7 @@ public class GameState : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         SceneManager.sceneLoaded += OnSceneLoad;
+        SceneManager.LoadScene("Main Menu");
     }
 
     private void OnSceneLoad(Scene scene, LoadSceneMode mode)
@@ -45,15 +46,28 @@ public class GameState : MonoBehaviour
             changer.setBackgroundColor(totalScore > 0);
             Debug.Log("TotalPositivity : " + totalScore);
             StartCoroutine("ReloadMenu", 60f);
-            InputManager.Input.Spider.Web.performed += ReloadMenuCallback;
+            InputManager.Input.Spider.Bite.performed += ReloadMenuCallback;
         }
-        if (scene.name == "Main Menu")
+        else
         {
-            Destroy(this);
+            InputManager.Input.Spider.Bite.performed -= ReloadMenuCallback;
         }
+        if (scene.name == "Level")
+        {
+            Reset();
+        }
+        /*if (scene.name == "Init")
+        {
+            SceneManager.LoadScene("Main Menu");
+        }*/
     }
 
-
+    public void Reset()
+    {
+        bittenNPCs = new List<BittenNPCInfos>();
+        totalScore = 0;
+        BitingSystem.Instance.Reset();
+    }
     public void SaveBittenNPCInfos(int npcMoralityScore, int tastePositivity, string thing)
     {
         BittenNPCInfos bittenNPCInfos = new BittenNPCInfos();
