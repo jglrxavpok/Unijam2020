@@ -39,6 +39,7 @@ public class PauseWatcher : MonoBehaviour
         foreach (var passer in GameObject.FindGameObjectsWithTag("Passerby"))
         {
             passer.GetComponent<NPCMovement>().enabled = false;
+            passer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         }
         InputManager.Input.UI.Cancel.performed -= Pause;
         InputManager.Input.UI.Cancel.performed += Resume;
@@ -55,6 +56,8 @@ public class PauseWatcher : MonoBehaviour
         foreach (var passer in GameObject.FindGameObjectsWithTag("Passerby"))
         {
             passer.GetComponent<NPCMovement>().enabled = true;
+            passer.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+
         }
         InputManager.Input.UI.Cancel.performed += Pause;
         InputManager.Input.UI.Cancel.performed -= Resume;
