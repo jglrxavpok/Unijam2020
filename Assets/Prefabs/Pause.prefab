@@ -186,8 +186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 315.25, y: -186.97552}
-  m_SizeDelta: {x: 630.5, y: 373.95105}
+  m_AnchoredPosition: {x: 303.75, y: -186.97552}
+  m_SizeDelta: {x: 607.5, y: 373.95105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7463882774202717085
 Canvas:
@@ -351,7 +351,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Game Paused
+  m_Text: Jeu en pause
 --- !u!1 &2508845987402221078
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +478,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Leave
+  m_Text: Quitter
 --- !u!1 &2508845987671366411
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +556,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Resume
+  m_Text: Reprendre
 --- !u!1 &2508845987932206016
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,8 +816,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 315.25, y: -282.9633}
-  m_SizeDelta: {x: 590.5, y: 141.97552}
+  m_AnchoredPosition: {x: 303.75, y: -282.9633}
+  m_SizeDelta: {x: 567.5, y: 141.97552}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2508845988667765069
 CanvasRenderer:
@@ -975,8 +975,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 315.25, y: -90.98776}
-  m_SizeDelta: {x: 590.5, y: 141.97552}
+  m_AnchoredPosition: {x: 303.75, y: -90.98776}
+  m_SizeDelta: {x: 567.5, y: 141.97552}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2508845988825740658
 CanvasRenderer:
@@ -1557,8 +1557,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 112.75, y: -186.97552}
-  m_SizeDelta: {x: 185.5, y: 333.95105}
+  m_AnchoredPosition: {x: 124.25, y: -186.97552}
+  m_SizeDelta: {x: 208.5, y: 333.95105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &319903154796177494
 CanvasRenderer:
@@ -1600,7 +1600,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " \nBalance/Climb\n\n\nTarget web\n\n\nThrow web\n\n\nGrab human\n\n\nBite\n\n\nPause"
+  m_Text: " \nSe balancer/Grimper\n\n\nViser\n\n\nTirer la toile\n\n\nAttrapper un
+    passant\n\n\nMordre\n\n\nPause"
 --- !u!1 &6944763465345675090
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,8 +1714,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 793.25, y: -186.97552}
-  m_SizeDelta: {x: 225.5, y: 373.95105}
+  m_AnchoredPosition: {x: 781.75, y: -186.97552}
+  m_SizeDelta: {x: 248.5, y: 373.95105}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5373329817116747002
 Canvas:
