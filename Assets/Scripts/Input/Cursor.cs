@@ -24,6 +24,7 @@ public class Cursor : MonoBehaviour
         if(ctx.control.device.name == "Mouse"){
             controlByMouse = true;
         }else{
+            controlByMouse = false;
             Vector2 dir = ctx.ReadValue<Vector2>().normalized;
             transform.position = transform.parent.position + new Vector3(dir.x, dir.y, 0) * radiusFromPlayer * transform.parent.localScale.x;
         }

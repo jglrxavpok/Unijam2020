@@ -64,7 +64,7 @@ public class Train : MonoBehaviour
         float t = 1 - (timer.GetTime * timer.GetTime) / (step1Time * step1Time);
         float x = Mathf.Lerp(startPosX, endPosX, t);
 
-        audioSource.volume = t;
+        audioSource.volume = Mathf.Sin(t * Mathf.PI);
         transform.position = new Vector3(x, transform.position.y, zLevel);
     }
 
