@@ -1501,6 +1501,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1868470828, guid: fe0f7e76214748a45b188f7129e3728f, type: 3}
+      propertyPath: m_Parameters.numCapVertices
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7056058789232479305, guid: fe0f7e76214748a45b188f7129e3728f,
         type: 3}
       propertyPath: uiCanvas
