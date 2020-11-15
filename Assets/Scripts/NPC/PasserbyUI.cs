@@ -48,7 +48,7 @@ namespace NPC {
 
         private void OnDestroy () {
             InputManager.Input.Spider.Bite.performed -= OnBite;
-            InputManager.Input.UI.SwitchThoughtType.performed -= OnSwitchThought;
+            InputManager.Input.UI.SwitchThoughtType.started -= OnSwitchThought;
         }
 
         private void OnSwitchThought(InputAction.CallbackContext ctx) {
