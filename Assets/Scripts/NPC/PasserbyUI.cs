@@ -17,11 +17,16 @@ namespace NPC {
         
         private RectTransform _transform;
         private Canvas _canvas;
-        private float score = 0f;
+        private int score = 0;
         private GameObject player;
         private PlayerGrab grabCapability;
         private GameObject[] groups = new GameObject[0];
         private int selectedGroupIndex = 0;
+
+        private int tastePositivity;
+        private string thing;
+
+        private PasserbyDescription currentDescription;
 
         public float Width => _transform.rect.width*_canvas.scaleFactor;
 
@@ -47,7 +52,7 @@ namespace NPC {
 
         private void OnDestroy () {
             InputManager.Input.Spider.Bite.performed -= OnBite;
-            InputManager.Input.UI.SwitchThoughtType.performed -= OnSwitchThought;
+            InputManager.Input.UI.SwitchThoughtType.started -= OnSwitchThought;
         }
 
         private void OnSwitchThought(InputAction.CallbackContext ctx) {
@@ -69,11 +74,14 @@ namespace NPC {
         }
 
         private void OnBite(InputAction.CallbackContext ctx) {
-            BitingSystem.Instance.OnBite(score);
+
+            BitingSystem.Instance.OnBite(score, tastePositivity, thing);
+            currentDescription.Bite();
             grabCapability.UnGrab();
         }
 
         public void ChangeContents(PasserbyDescription description) {
+            currentDescription = description;
             fullName.text = $"{description.FirstName} {description.Name}";
             thoughtTaste.text = description.Taste;
             thoughtDesire.text = description.Desire;
@@ -81,6 +89,8 @@ namespace NPC {
             thoughtJudgment.text = description.Judgment;
             facePicture.sprite = description.FacePhoto;
             score = description.Score;
+            tastePositivity = description.TastePositivity;
+            thing = description.Thing;
         }
     }
 }

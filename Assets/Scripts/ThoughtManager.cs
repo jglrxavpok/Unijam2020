@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ThoughtManager : MonoBehaviour {
 
-    [SerializeField]
     private PasserbyDescription npc;
     
     public ThoughtsDB thoughtsDB;
@@ -25,11 +24,14 @@ public class ThoughtManager : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
+        npc = GetComponent<PasserbyDescription>();
         tasteThought = thoughtsDB.GetRandomTasteThought();
         thing = thoughtsDB.GetRandomThing();
         tastePositivity = tasteThought.positivity * thing.positivity;
         if (npc) {
             npc.Taste = tasteThought.content + thing.content;
+            npc.TastePositivity = tastePositivity;
+            npc.Thing = thing.content;
         }
         print("Taste : " + tasteThought.content + thing.content + ". Score : " + tastePositivity); 
         intentionThought = thoughtsDB.GetRandomIntentionThought();
@@ -38,7 +40,7 @@ public class ThoughtManager : MonoBehaviour {
         if (npc) {
             npc.Intention = intentionThought.content + action.content;
         }
-        print("Intention : " + intentionThought.content + action.content + ". Score : " + intentionPositivity); //TODO : use gender of the npc
+        print("Intention : " + intentionThought.content + action.content + ". Score : " + intentionPositivity);
         judgementThought = thoughtsDB.GetRandomJudgementThought();
         qualificative = thoughtsDB.GetRandomQualificative();
         judgementPositivity = judgementThought.positivity * qualificative.positivity;
@@ -62,7 +64,9 @@ public class ThoughtManager : MonoBehaviour {
         desireThought = thoughtsDB.GetRandomDesireThought();
         desire = thoughtsDB.GetRandomDesire();
         desirePositivity = desireThought.positivity * desire.positivity;
-        if (npc) {
+        if (npc) 
+        {
+            
             npc.Desire = desireThought.content + desire.content; //TODO : use gender of the npc
         }
         positivity = tastePositivity + intentionPositivity + judgementPositivity + desirePositivity;

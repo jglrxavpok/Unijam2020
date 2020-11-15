@@ -46,6 +46,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Gender
+    uniqueID: 4087546447
+    locked: 0
+  - name: Outfit
+    uniqueID: 3270642169
+    locked: 0
+  - name: Arm
+    uniqueID: 2037313339
+    locked: 0
+  - name: Sleeve
+    uniqueID: 546674165
+    locked: 0
+  - name: Haircut
+    uniqueID: 3006043387
+    locked: 0
+  - name: Foreground
+    uniqueID: 2800133217
+    locked: 0
   - name: UI
     uniqueID: 764227021
     locked: 0

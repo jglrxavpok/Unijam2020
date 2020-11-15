@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 
 namespace NPC {
     public class PasserbyDescription : MonoBehaviour {
@@ -9,7 +10,18 @@ namespace NPC {
         [SerializeField] private string judgment;
         [SerializeField] private string desire;
         [SerializeField] private Sprite facePhoto;
-        [SerializeField] private float score;
+        [SerializeField] private int score;
+        private int tastePositivity;
+        private string thing;
+
+        private bool alreadyBitten = false;
+
+        [Header("Bite rendering")] 
+        [SerializeField]
+        private SpriteRenderer[] _renderers;
+
+        [SerializeField] private Material materialToApplyOnceBitten;
+        
 
         private void Start() {
             LoadRandom();
@@ -20,12 +32,23 @@ namespace NPC {
             firstName = fullName.Split(' ')[0];
             name = fullName.Split(' ')[1];
         }
+
+        public void Bite() {
+            alreadyBitten = true;
+            foreach (var spriteRenderer in _renderers) {
+                spriteRenderer.material = materialToApplyOnceBitten;
+                var exposure = gameObject.AddComponent<ExposeSpriteToShader>();
+                exposure.SpriteRenderer = spriteRenderer;
+            }
+
+            // TODO: change render
+        }
         
         public Sprite FacePhoto => facePhoto;
         public string FirstName => firstName;
         public string Name => name;
 
-        public float Score {
+        public int Score {
             get => score;
             set => score = value;
         }
@@ -44,6 +67,20 @@ namespace NPC {
         public string Intention {
             get => intention;
             set => intention = value;
+        }
+
+        public int TastePositivity { 
+            get => tastePositivity; 
+            set => tastePositivity = value; 
+        }
+        public string Thing
+        {
+            get => thing;
+            set => thing = value;
+        }
+
+        public bool HasBeenBitten() {
+            return alreadyBitten;
         }
     }
 }
