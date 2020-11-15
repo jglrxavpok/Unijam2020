@@ -48,7 +48,7 @@ public class PlayerGrab : MonoBehaviour
     private void OnGrab (InputAction.CallbackContext ctx)  {
         if(ctx.ReadValueAsButton()) {
             GameObject pnjSelected = pnjSelection.SelectedPnj;
-            if(!pnjSelected) return;
+            if(!pnjSelected || BitingSystem.Instance.GetRemainingBites() <= 0) return;
 
             Grab(pnjSelected);
         }else{
