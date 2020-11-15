@@ -7,6 +7,12 @@ public class ChangeTextAndImage : MonoBehaviour {
     [SerializeField] 
     private Image image;
 
+    [SerializeField]
+    private Sprite villainSprite;
+
+    [SerializeField]
+    private Sprite heroSprite;
+
     [SerializeField] 
     private Text infoTitle;
 
@@ -71,9 +77,17 @@ public class ChangeTextAndImage : MonoBehaviour {
         
     }
 
-    public void setImage(Sprite img) 
+    public void setImage(bool alignment) 
     {
-        image.sprite = img;
+        if (noBitten)
+        {
+            image.color = Color.clear;
+        }
+        else
+        {
+            image.sprite = alignment ? heroSprite : villainSprite;
+        }
+        
     }
 
 }
