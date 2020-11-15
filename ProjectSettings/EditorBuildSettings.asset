@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 17703c3e0e73dc7499d10b048a8fd91e
@@ -18,14 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/jglrxavpok/IntegrateAll.unity
-    guid: 3e6f4843a45e77d42a34189f43d2a6f3
+    path: Assets/Scenes/Altreon/Level.unity
+    guid: cc29c4ab1911c2c4a8041ef4303f3326
   - enabled: 1
     path: Assets/Scenes/JT.unity
     guid: 3ed23dba477d3a24996f7ce7f80499ef
-  - enabled: 1
-    path: Assets/Scenes/IntegrateAll2.unity
-    guid: c175f581ee2115340b15b39caceb58d3
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e1ebcd4b66e0a4747b54902e7e9ed3a6,
       type: 2}

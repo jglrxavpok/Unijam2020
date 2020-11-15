@@ -29,51 +29,70 @@ public class AudioFiles : ScriptableObject
     [SerializeField] private AudioClip levelMusic;
     [SerializeField] private AudioClip jtMusic;
 
+    [Header("JT Message")]
+    public JtMessage[] JtMessages;
+    
+    private Dictionary<(int, float, float), string> JtMessagesDict;
 
-    public AudioClip GetSoundClip (SoundFile soundFile) {
+    private void Awake () {
+        JtMessagesDict = new Dictionary<(int, float, float), string>();
+
+        foreach(JtMessage jt in JtMessages){
+            JtMessagesDict.Add((jt.theme, jt.alignement, jt.opposiion), jt.message);
+        }
+    }
+
+
+    public AudioClip GetOneShotClip (SoundOneShot soundFile) {
         switch (soundFile) {
             //"Environment
-            case SoundFile.PeopleBackround : return peopleBackground;
-            case SoundFile.HumBackground : return humBackground;
-            case SoundFile.TrainMovement : return trainMovement;
-            case SoundFile.TrainOpenDoor : return trainOpenDoor;
-            case SoundFile.TrainCloseDoor : return trainCloseDoor;
-            case SoundFile.TrainCloseDoorWarning : return trainCloseDoorWarning;
+            case SoundOneShot.TrainOpenDoor : return trainOpenDoor;
+            case SoundOneShot.TrainCloseDoor : return trainCloseDoor;
 
             //"Spider
-            case SoundFile.SpiderBite : return spiderBite;
-            case SoundFile.SpiderGrab : return spiderGrab;
-            case SoundFile.SpiderUngrab : return spiderUngrab;
+            case SoundOneShot.SpiderBite : return spiderBite;
+            case SoundOneShot.SpiderGrab : return spiderGrab;
+            case SoundOneShot.SpiderUngrab : return spiderUngrab;
 
             //UI
-            case SoundFile.ButtonClick : return buttonClick;
-            case SoundFile.SpiderSwitchEmotion : return spiderSwitchEmotion;
+            case SoundOneShot.ButtonClick : return buttonClick;
+            case SoundOneShot.SpiderSwitchEmotion : return spiderSwitchEmotion;
         }
 
         return null;
     }
 
-    public AudioClip GetMusicClip (MusicFile musicFile) {
+    public AudioClip GetLoopClip (SoundLoop musicFile) {
         switch (musicFile) {
-            case MusicFile.MainMenu : return mainMenuMusic;
-            case MusicFile.Level : return levelMusic;
-            case MusicFile.Jt : return jtMusic;
+            //"Environment
+            case SoundLoop.PeopleBackround : return peopleBackground;
+            case SoundLoop.HumBackground : return humBackground;
+            case SoundLoop.TrainMovement : return trainMovement;
+            case SoundLoop.TrainCloseDoorWarning : return trainCloseDoorWarning;
+
+            case SoundLoop.MainMenu : return mainMenuMusic;
+            case SoundLoop.Level : return levelMusic;
+            case SoundLoop.Jt : return jtMusic;
         }
 
         return null;
     }
 
-    
+    public string GetMessage (int theme, float alignement, float opposiion){
+        /*foreach(JtMessage jt in JtMessages){
+            if(theme == jt.theme && alignement == jt.alignement && jt.opposiion){
+                return jt.message;
+            }
+        }*/
+
+        return JtMessagesDict[(theme, alignement, opposiion)];
+    }
 }
 
-public enum SoundFile {
+public enum SoundOneShot {
     //"Environment
-    PeopleBackround,
-    HumBackground,
-    TrainMovement,
     TrainOpenDoor,
     TrainCloseDoor,
-    TrainCloseDoorWarning,
 
     //"Spider
     SpiderBite,
@@ -85,8 +104,27 @@ public enum SoundFile {
     SpiderSwitchEmotion
 }
 
-public enum MusicFile {
+public enum SoundLoop {
+    //"Environment
+    PeopleBackround,
+    HumBackground,
+    TrainMovement,
+    TrainCloseDoorWarning,
+
+    //Music
     MainMenu,
     Level,
-    Jt
+    Jt,
+}
+
+[System.Serializable]
+public class JtMessage {
+    public int theme;
+    public float alignement;
+    public float opposiion;
+    //d'autre truc
+
+    public string message;
+
+
 }

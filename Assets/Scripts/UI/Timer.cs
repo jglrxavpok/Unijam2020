@@ -54,4 +54,6 @@ public class Timer : MonoBehaviour
             _text.text = prefix+minutes.ToString() + ':' + (time - 60 * minutes).ToString("00.0");
         }
     }
+
+    public float GetTime {get{return time;}}
 }
