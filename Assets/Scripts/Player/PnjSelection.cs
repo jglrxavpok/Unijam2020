@@ -14,7 +14,8 @@ public class PnjSelection : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
-        if (col.GetComponent<PasserbyDescription>()) {
+        var desc = col.GetComponent<PasserbyDescription>();
+        if (desc && !desc.HasBeenBitten()) {
             pnjs.Add(col.gameObject);
         }
     }
@@ -29,6 +30,11 @@ public class PnjSelection : MonoBehaviour
             float closestDistance = Mathf.Infinity;
 
             foreach(GameObject pnj in pnjs){
+                var desc = pnj.GetComponent<PasserbyDescription>();
+                if (desc && desc.HasBeenBitten()) {
+                    continue;
+                }
+
                 float distance = Vector3.Distance(transform.position, pnj.transform.position);
 
                 if(distance < closestDistance){
