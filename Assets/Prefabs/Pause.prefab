@@ -1600,8 +1600,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: " \nSe balancer/Grimper\n\n\nViser\n\n\nTirer la toile\n\n\nAttrapper un
-    passant\n\n\nMordre\n\n\nPause"
+  m_Text: " \nSe balancer/Grimper\n\n\nViser\n\n\nAttrapper un passant\n\n\nTirer
+    la toile\n\n\nMordre\n\n\nPause"
 --- !u!1 &6944763465345675090
 GameObject:
   m_ObjectHideFlags: 0

@@ -539,7 +539,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincible: 0
+  hitedTime: 0.75
+  clignotementFreq: 0.1
   textLives: {fileID: 0}
+  spiderRenderer: {fileID: 8657297017798799619}
 --- !u!1 &8657297016122892634
 GameObject:
   m_ObjectHideFlags: 0
