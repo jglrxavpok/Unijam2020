@@ -57,6 +57,7 @@ public class GameState : MonoBehaviour
                 changer.setScrollingText("");
             }
             changer.setBackgroundColor(totalScore > 0);
+            changer.setImage(totalScore > 0);
             Debug.Log("TotalPositivity : " + totalScore);
             StartCoroutine("ReloadMenu", 60f);
             InputManager.Input.Spider.Bite.performed += ReloadMenuCallback;
