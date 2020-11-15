@@ -159,6 +159,20 @@ namespace Player {
             }
         }
 
+        public void ShootWeb(Vector2 direction) {
+            var hit = Physics2D.Raycast(Position, direction, webRaycastDistance, webRaycastLayer.value);
+            if (hit.collider != null && hit.collider.gameObject != null) {
+                _ghostAnchorSprite.enabled = true;
+                ghostAnchor.transform.position = hit.point;
+            } else {
+                _ghostAnchorSprite.enabled = false;
+            }
+
+            ShootWeb();
+        }
+
+        public bool IsOnWeb {get{return OnWeb;}}
+
         public void CutWeb() {
             _webRenderer.DestroyWeb();
             _webRenderer.enabled = false;

@@ -30,12 +30,13 @@ public class NPCVisual : MonoBehaviour {
 
     [SerializeField] 
     private SpriteRenderer arms;
-    
-    
-    
+
+
+    private Rigidbody2D _rb;
     
     // Start is called before the first frame update
     void Start() {
+        _rb = GetComponent<Rigidbody2D>();
         female = Resources.Load<Sprite>("NPC/female");
         male = Resources.Load<Sprite>("NPC/male");
 
@@ -58,6 +59,16 @@ public class NPCVisual : MonoBehaviour {
 
         createNPC();
         print(gender.color);
+    }
+
+    private void Update() {
+        var velocity = _rb.velocity;
+        var flipX = velocity.x < 0;
+        gender.flipX = flipX;
+        outfit.flipX = flipX;
+        sleeves.flipX = flipX;
+        arms.flipX = flipX;
+        haircut.flipX = flipX;
     }
 
     void createNPC() {

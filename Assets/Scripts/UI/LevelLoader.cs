@@ -53,6 +53,10 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
+    public void Quit() {
+        Application.Quit();
+    }
+
     public void OnFadeComplete()
     {
         Debug.Log($"Loading {_level}");

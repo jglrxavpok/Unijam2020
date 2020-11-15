@@ -29,20 +29,6 @@ public class AudioFiles : ScriptableObject
     [SerializeField] private AudioClip levelMusic;
     [SerializeField] private AudioClip jtMusic;
 
-    [Header("JT Message")]
-    public JtMessage[] JtMessages;
-    
-    private Dictionary<(int, float, float), string> JtMessagesDict;
-
-    private void Awake () {
-        JtMessagesDict = new Dictionary<(int, float, float), string>();
-
-        foreach(JtMessage jt in JtMessages){
-            JtMessagesDict.Add((jt.theme, jt.alignement, jt.opposiion), jt.message);
-        }
-    }
-
-
     public AudioClip GetOneShotClip (SoundOneShot soundFile) {
         switch (soundFile) {
             //"Environment
@@ -77,16 +63,6 @@ public class AudioFiles : ScriptableObject
 
         return null;
     }
-
-    public string GetMessage (int theme, float alignement, float opposiion){
-        /*foreach(JtMessage jt in JtMessages){
-            if(theme == jt.theme && alignement == jt.alignement && jt.opposiion){
-                return jt.message;
-            }
-        }*/
-
-        return JtMessagesDict[(theme, alignement, opposiion)];
-    }
 }
 
 public enum SoundOneShot {
@@ -115,16 +91,4 @@ public enum SoundLoop {
     MainMenu,
     Level,
     Jt,
-}
-
-[System.Serializable]
-public class JtMessage {
-    public int theme;
-    public float alignement;
-    public float opposiion;
-    //d'autre truc
-
-    public string message;
-
-
 }

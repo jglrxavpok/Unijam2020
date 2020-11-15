@@ -78,5 +78,7 @@ public class Train : MonoBehaviour
         AudioBox.Instance.StopSoundLoop(SoundLoop.TrainCloseDoorWarning);
 
         AudioBox.Instance.PlaySoundOneShot(SoundOneShot.TrainCloseDoor);
+
+        SceneControl.Instance?.ChangeScene("JT");
     }
 }
