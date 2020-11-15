@@ -18,6 +18,7 @@ public class GameState : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
     public struct BittenNPCInfos
     {
         public int moralityScore;
@@ -36,6 +37,7 @@ public class GameState : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         SceneManager.sceneLoaded += OnSceneLoad;
+        Reset();
         SceneManager.LoadScene("Main Menu");
     }
 
@@ -67,10 +69,6 @@ public class GameState : MonoBehaviour
         {
             Reset();
         }
-        /*if (scene.name == "Init")
-        {
-            SceneManager.LoadScene("Main Menu");
-        }*/
     }
 
     public void Reset()
