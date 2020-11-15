@@ -897,6 +897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 899424820}
+  defaultSelection: {fileID: 749696446}
 --- !u!95 &899424820
 Animator:
   serializedVersion: 3

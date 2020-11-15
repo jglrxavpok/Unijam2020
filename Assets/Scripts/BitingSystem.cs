@@ -32,8 +32,6 @@ public class BitingSystem {
     public void Reset() {
         allowedBites = 3;
         gameState.totalScore = 0;
-        
-        
     }
 
     public void OnBite(int npcMoralityScore, int tastePositivity, string thing) 
