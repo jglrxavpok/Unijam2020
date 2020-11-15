@@ -33,6 +33,8 @@ public class NPCVisual : MonoBehaviour {
 
 
     private Rigidbody2D _rb;
+
+    private static int npcIndex;
     
     // Start is called before the first frame update
     void Start() {
@@ -142,6 +144,15 @@ public class NPCVisual : MonoBehaviour {
         arms.color = gender.color;
 
         haircut.color = hairColors[Random.Range(0, 10)];
+
+        npcIndex++;
+
+        int baseOrderInLayer = 5*npcIndex;
+        gender.sortingOrder = baseOrderInLayer + 0;
+        outfit.sortingOrder = baseOrderInLayer + 1;
+        arms.sortingOrder = baseOrderInLayer + 2;
+        sleeves.sortingOrder = baseOrderInLayer + 3;
+        haircut.sortingOrder = baseOrderInLayer + 4;
     }
 
     public Color getHairColor() {
