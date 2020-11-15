@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Player;
+using UnityEngine;
 
 namespace NPC {
     public class PasserbyDescription : MonoBehaviour {
@@ -11,6 +12,15 @@ namespace NPC {
         [SerializeField] private Sprite facePhoto;
         [SerializeField] private float score;
 
+        private bool alreadyBitten = false;
+
+        [Header("Bite rendering")] 
+        [SerializeField]
+        private SpriteRenderer[] _renderers;
+
+        [SerializeField] private Material materialToApplyOnceBitten;
+        
+
         private void Start() {
             LoadRandom();
         }
@@ -19,6 +29,17 @@ namespace NPC {
             var fullName = NPCBuilder.GetRandomName(); 
             firstName = fullName.Split(' ')[0];
             name = fullName.Split(' ')[1];
+        }
+
+        public void Bite() {
+            alreadyBitten = true;
+            foreach (var spriteRenderer in _renderers) {
+                spriteRenderer.material = materialToApplyOnceBitten;
+                var exposure = gameObject.AddComponent<ExposeSpriteToShader>();
+                exposure.SpriteRenderer = spriteRenderer;
+            }
+
+            // TODO: change render
         }
         
         public Sprite FacePhoto => facePhoto;
@@ -44,6 +65,10 @@ namespace NPC {
         public string Intention {
             get => intention;
             set => intention = value;
+        }
+
+        public bool HasBeenBitten() {
+            return alreadyBitten;
         }
     }
 }
