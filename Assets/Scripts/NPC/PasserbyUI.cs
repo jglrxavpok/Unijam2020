@@ -72,6 +72,8 @@ namespace NPC {
                 groups[i].SetActive(false);
             }
             groups[selectedGroupIndex].SetActive(true);
+
+            AudioBox.Instance?.PlaySoundOneShot(SoundOneShot.SpiderSwitchEmotion);
         }
 
         private void OnBite(InputAction.CallbackContext ctx) {

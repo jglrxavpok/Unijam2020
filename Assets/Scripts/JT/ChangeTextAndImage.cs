@@ -4,29 +4,76 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class ChangeTextAndImage : MonoBehaviour {
-   [SerializeField] 
-   private Image image;
+    [SerializeField] 
+    private Image image;
 
-   [SerializeField] 
-   private Text infoTitle;
+    [SerializeField] 
+    private Text infoTitle;
+
+    [SerializeField]
+    private string villainFashText;
+
+    [SerializeField]
+    private string heroFlashText;
+
+    [SerializeField]
+    private string noBittenText;
+    
+    [SerializeField] 
+    private Text scrollingText;
+
+    [SerializeField]
+    private Image background;
+
+    [SerializeField]
+    private Color backgroundVillainColor;
+
+    
+    [SerializeField]
+    private Color backgroundHeroColor;
+
+    [HideInInspector]
+    public bool noBitten;
    
-   [SerializeField] 
-   private Text scrollingText;
-   
-   public void setScrollingText(string text) {
-      if (text.Length != 0)
-      {
+    public void setScrollingText(string text) 
+    {
+        if (noBitten)
+        {
+            scrollingText.text = "";
+            return;
+        }
+        if (text.Length != 0)
+        {
             scrollingText.text = text;
-      }
+        }
+        
       
-   }
+    }
 
-   public void setInfoTitle(String text) {
-      infoTitle.text = text;
-   }
+    public void setBackgroundColor(bool alignment)
+    {
+        if (!noBitten)
+        {
+            background.color = alignment ? backgroundHeroColor : backgroundVillainColor;
+        }
+        
+    }
+    public void setInfoTitle(bool alignment) 
+    {
+        if (!noBitten)
+        {
+            infoTitle.text = alignment ? heroFlashText : villainFashText;
+        }
+        else
+        {
+            infoTitle.text = noBittenText;
+        }
+        
+    }
 
-   public void setImage(Sprite img) {
-      image.sprite = img;
-   }
+    public void setImage(Sprite img) 
+    {
+        image.sprite = img;
+    }
 
 }

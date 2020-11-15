@@ -92,6 +92,8 @@ public class PlayerGrab : MonoBehaviour
         PnjGrabbed = pnj;
         IsGrab = true;
 
+        AudioBox.Instance?.PlaySoundOneShot(SoundOneShot.SpiderGrab);
+
         InputManager.Input.Spider.Web.Disable();
         InputManager.Input.Spider.Swing.Disable();
         InputManager.Input.Spider.Slide.Disable();
@@ -115,6 +117,7 @@ public class PlayerGrab : MonoBehaviour
         PnjGrabbed = null;
         IsGrab = false;
 
+        AudioBox.Instance?.PlaySoundOneShot(SoundOneShot.SpiderUngrab);
 
         InputManager.Input.Spider.Web.Enable();
         InputManager.Input.Spider.Swing.Enable();
