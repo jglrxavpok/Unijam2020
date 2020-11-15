@@ -19,6 +19,7 @@ public class AudioFiles : ScriptableObject
     [SerializeField] private AudioClip spiderBite;
     [SerializeField] private AudioClip spiderGrab;
     [SerializeField] private AudioClip spiderUngrab;
+    [SerializeField] private AudioClip spiderHit;
 
     [Header("UI")]
     [SerializeField] private AudioClip buttonClick;
@@ -39,6 +40,7 @@ public class AudioFiles : ScriptableObject
             case SoundOneShot.SpiderBite : return spiderBite;
             case SoundOneShot.SpiderGrab : return spiderGrab;
             case SoundOneShot.SpiderUngrab : return spiderUngrab;
+            case SoundOneShot.SpiderHit : return spiderHit;
 
             //UI
             case SoundOneShot.ButtonClick : return buttonClick;
@@ -74,6 +76,7 @@ public enum SoundOneShot {
     SpiderBite,
     SpiderGrab,
     SpiderUngrab,
+    SpiderHit,
 
     //UI
     ButtonClick,
