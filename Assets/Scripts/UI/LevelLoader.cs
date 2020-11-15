@@ -37,13 +37,13 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel(string levelName)
     {
-        AudioBox.Instance.PlaySound(SoundFile.ButtonClick);
+        AudioBox.Instance.PlaySoundOneShot(SoundOneShot.ButtonClick);
         Debug.Log($"Loading {levelName}");
         SceneManager.LoadScene(levelName);
     }
 
     public void PlaySwitchSound()
     {
-        AudioBox.Instance.PlaySound(SoundFile.SpiderSwitchEmotion);
+        AudioBox.Instance.PlaySoundOneShot(SoundOneShot.SpiderSwitchEmotion);
     }
 }
