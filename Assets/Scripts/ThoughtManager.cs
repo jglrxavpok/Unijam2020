@@ -33,14 +33,14 @@ public class ThoughtManager : MonoBehaviour {
             npc.TastePositivity = tastePositivity;
             npc.Thing = thing.content;
         }
-        print("Taste : " + tasteThought.content + thing.content + ". Score : " + tastePositivity); 
+        //print("Taste : " + tasteThought.content + thing.content + ". Score : " + tastePositivity); 
         intentionThought = thoughtsDB.GetRandomIntentionThought();
         action = thoughtsDB.GetRandomAction();
         intentionPositivity = intentionThought.positivity * action.positivity;
         if (npc) {
             npc.Intention = intentionThought.content + action.content;
         }
-        print("Intention : " + intentionThought.content + action.content + ". Score : " + intentionPositivity);
+        //print("Intention : " + intentionThought.content + action.content + ". Score : " + intentionPositivity);
         judgementThought = thoughtsDB.GetRandomJudgementThought();
         qualificative = thoughtsDB.GetRandomQualificative();
         judgementPositivity = judgementThought.positivity * qualificative.positivity;
@@ -74,7 +74,7 @@ public class ThoughtManager : MonoBehaviour {
             npc.Judgment = judgmentStr;
             npc.Score = positivity;
         }
-        print("Total Positivity : " + positivity.ToString());
+        //print("Total Positivity : " + positivity.ToString());
     }
 
     // Update is called once per frame

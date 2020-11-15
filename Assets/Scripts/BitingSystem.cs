@@ -21,17 +21,19 @@ public class BitingSystem {
     }
 
     private int allowedBites;
-    private GameState gameState;
+    public GameState gameState;
 
 
     private BitingSystem() {
+        gameState = GameObject.Find("GameState").GetComponent<GameState>();
         Reset();
     }
 
     public void Reset() {
         allowedBites = 3;
-        gameState = GameObject.Find("GameState").GetComponent<GameState>();
         gameState.totalScore = 0;
+        
+        
     }
 
     public void OnBite(int npcMoralityScore, int tastePositivity, string thing) 
@@ -51,6 +53,7 @@ public class BitingSystem {
         }
     }
 
+    
     public float GetTotalScore()
     {
         return gameState.totalScore;
