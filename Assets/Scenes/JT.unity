@@ -862,6 +862,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 1849838094}
+  villainSprite: {fileID: 21300000, guid: f3f5686ae0039054a86a555d45165271, type: 3}
+  heroSprite: {fileID: 21300000, guid: f3f5686ae0039054a86a555d45165271, type: 3}
   infoTitle: {fileID: 285964844}
   villainFashText: "Des nouveaux super-h\xE9ros !"
   heroFlashText: 'Alerte : super-criminels !'
