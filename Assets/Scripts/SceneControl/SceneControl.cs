@@ -57,6 +57,8 @@ public class SceneControl : MonoBehaviour
 
         fade.color = new Color(0, 0, 0, 0);
         fadeStep = -1;
+
+        block = false;
     }
 
     private void Update () {

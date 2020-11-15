@@ -70,7 +70,12 @@ public class LevelLoader : MonoBehaviour
     public void OnFadeComplete()
     {
         Debug.Log($"Loading {_level}");
-        SceneManager.LoadScene(_level);
+        //SceneManager.LoadScene(_level);
+        if(SceneControl.Instance){
+            SceneControl.Instance.ChangeScene(_level);
+        }else{
+            SceneManager.LoadScene(_level);
+        }
     }
 
     public void PlaySwitchSound()
