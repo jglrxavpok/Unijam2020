@@ -106,6 +106,7 @@ public class PlayerGrab : MonoBehaviour
         rb.velocity = Vector2.zero;
         animator.SetBool("IsGrab", false);
         _movement.enabled = true;
+        if(!_movement.IsOnWeb) _movement.ShootWeb(Vector2.up);
 
         transform.parent = null;
         
@@ -113,6 +114,7 @@ public class PlayerGrab : MonoBehaviour
 
         PnjGrabbed = null;
         IsGrab = false;
+
 
         InputManager.Input.Spider.Web.Enable();
         InputManager.Input.Spider.Swing.Enable();
