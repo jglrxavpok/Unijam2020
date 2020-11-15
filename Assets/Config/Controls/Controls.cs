@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Config/Controls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Config/Controls/Controls.inputactions'
 
 using System;
 using System.Collections;
@@ -471,6 +471,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""name"": ""Switch Thought Type"",
                     ""type"": ""Button"",
                     ""id"": ""707e75e2-7f78-453f-abd4-264f06487511"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""1b871421-56d5-4bf2-88b8-37dc5744cea0"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -960,6 +968,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Switch Thought Type"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""65c4541a-3a18-4e62-9adf-7e93a8de9fa4"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49c88482-b5a6-4004-9c3c-1ae17c0c71f2"",
+                    ""path"": ""<XInputController>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1013,6 +1043,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         m_UI_SwitchThoughtType = m_UI.FindAction("Switch Thought Type", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1179,6 +1210,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_UI_TrackedDevicePosition;
     private readonly InputAction m_UI_TrackedDeviceOrientation;
     private readonly InputAction m_UI_SwitchThoughtType;
+    private readonly InputAction m_UI_Pause;
     public struct UIActions
     {
         private @Controls m_Wrapper;
@@ -1194,6 +1226,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @TrackedDevicePosition => m_Wrapper.m_UI_TrackedDevicePosition;
         public InputAction @TrackedDeviceOrientation => m_Wrapper.m_UI_TrackedDeviceOrientation;
         public InputAction @SwitchThoughtType => m_Wrapper.m_UI_SwitchThoughtType;
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1236,6 +1269,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @SwitchThoughtType.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitchThoughtType;
                 @SwitchThoughtType.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitchThoughtType;
                 @SwitchThoughtType.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSwitchThoughtType;
+                @Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -1273,6 +1309,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @SwitchThoughtType.started += instance.OnSwitchThoughtType;
                 @SwitchThoughtType.performed += instance.OnSwitchThoughtType;
                 @SwitchThoughtType.canceled += instance.OnSwitchThoughtType;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -1321,5 +1360,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnTrackedDevicePosition(InputAction.CallbackContext context);
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
         void OnSwitchThoughtType(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
