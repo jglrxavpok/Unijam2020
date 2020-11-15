@@ -62,10 +62,12 @@ public class EndingsDB : ScriptableObject
 
     public string GetEndingMessage(Theme theme, Appreciation appreciation, Alignment alignment)
     {
-        Debug.Log(theme);
-        Debug.Log(appreciation);
-        Debug.Log(alignment);
-        return themes[(int)theme].appreciations[(int)appreciation].alignments[(int)alignment].endingMessage;
+        if ((int)theme < themes.Count && (int)appreciation < themes[(int)theme].appreciations.Count && (int)alignment < themes[(int)theme].appreciations[(int)appreciation].alignments.Count)
+        {
+            return themes[(int)theme].appreciations[(int)appreciation].alignments[(int)alignment].endingMessage;
+        }
+        return "";
+        
     }
     public string GetEndingMessage(string theme, bool appreciation, bool alignment)
     {
