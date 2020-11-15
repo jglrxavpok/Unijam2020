@@ -74,16 +74,15 @@ MonoBehaviour:
     - appreciation: 0
       alignments:
       - alignment: 0
-        endingMessage: "Un sourire charmeur, un corps d'athl\xE8te, mais qui est
-          donc ce nouveau d\xE9fenseur qui soul\xE8ve des super-fontes ? Du jour
-          au lendemain, il est arriv\xE9 pour nous proposer des s\xE9ances de coaching
-          personnalis\xE9e et arr\xEAter le crime dans le m\xEAme temps. Quel H\xE9ros
-          !"
+        endingMessage: "Braconnages, maltraitance animale... Ces d\xE9lits deviendront-ils
+          un simple mauvais souvenir ? Des t\xE9moins nous rapportent que beaucoup
+          d'individus connus pour ces m\xE9faits se sont pris une v\xE9ritable correction
+          par un myst\xE9rieux individu."
       - alignment: 1
-        endingMessage: "Un fl\xE9au terrible s'abat sur notre ville, un super-criminel
-          s\xE8me le chaos. En plus de \xE7a, il est super-muscl\xE9, c'est un habitu\xE9
-          des salles de sport. Il veut r\xE9former l'activit\xE9 physique de tous
-          les citoyens et nous mettant au sport. Au secours !"
+        endingMessage: "Une ville vient d'\xEAtre subitement enti\xE8rement ras\xE9e.
+          Les autorit\xE9s nous rapportent n'avoir trouv\xE9 que des chats et chiens
+          en grand nombre dans les d\xE9combres. Comment sont-ils arriv\xE9s ? Pourquoi
+          sont-ils aussi en forme ? Tout ceci reste un myst\xE8re."
     - appreciation: 1
       alignments:
       - alignment: 0
@@ -102,44 +101,32 @@ MonoBehaviour:
     - appreciation: 0
       alignments:
       - alignment: 0
-        endingMessage: "Un sourire charmeur, un corps d'athl\xE8te, mais qui est
-          donc ce nouveau d\xE9fenseur qui soul\xE8ve des super-fontes ? Du jour
-          au lendemain, il est arriv\xE9 pour nous proposer des s\xE9ances de coaching
-          personnalis\xE9e et arr\xEAter le crime dans le m\xEAme temps. Quel H\xE9ros
-          !"
+        endingMessage: "Un nouveau super-h\xE9ros est arriv\xE9 dans notre ville.
+          Hourra !"
       - alignment: 1
-        endingMessage: "Un fl\xE9au terrible s'abat sur notre ville, un super-criminel
-          s\xE8me le chaos. En plus de \xE7a, il est super-muscl\xE9, c'est un habitu\xE9
-          des salles de sport. Il veut r\xE9former l'activit\xE9 physique de tous
-          les citoyens et nous mettant au sport. Au secours !"
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
     - appreciation: 1
       alignments:
       - alignment: 0
-        endingMessage: "Un myst\xE9rieux super-h\xE9ros \xE0 l'apparence fragile
-          a fait son apparition en ville. Il utilise ses pouvoirs pour r\xE9tablir
-          la paix parmi nous. En revanche, il n'intervient pas toujours tr\xE8s vite
-          surtout s'il est \xE0 longue distance. Il semblerait qu'il ne soit pas
-          v\xE9hicul\xE9 et qu'il manque un peu d'endurance. D'ailleurs, il va souvent
-          devant les salles de sport pour se moquer des adh\xE9rents..."
+        endingMessage: "Un nouveau super-h\xE9ros est arriv\xE9 dans notre ville.
+          Hourra !"
       - alignment: 1
-        endingMessage: "Plus de musculation, de gymnastique ou m\xEAme de jogging
-          dans les parcs. Un super-individu malveillant terrorise les sportifs partout
-          en ville. Il aurait d\xE9clar\xE9 \"Les muscles c'est pour les faibles\"..."
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
   - theme: 4
     appreciations:
     - appreciation: 0
       alignments:
       - alignment: 0
-        endingMessage: "Un sourire charmeur, un corps d'athl\xE8te, mais qui est
-          donc ce nouveau d\xE9fenseur qui soul\xE8ve des super-fontes ? Du jour
-          au lendemain, il est arriv\xE9 pour nous proposer des s\xE9ances de coaching
-          personnalis\xE9e et arr\xEAter le crime dans le m\xEAme temps. Quel H\xE9ros
-          !"
+        endingMessage: "Un nouveau super-h\xE9ros est arriv\xE9 dans notre ville.
+          Hourra !"
       - alignment: 1
-        endingMessage: "Un fl\xE9au terrible s'abat sur notre ville, un super-criminel
-          s\xE8me le chaos. En plus de \xE7a, il est super-muscl\xE9, c'est un habitu\xE9
-          des salles de sport. Il veut r\xE9former l'activit\xE9 physique de tous
-          les citoyens et nous mettant au sport. Au secours !"
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
     - appreciation: 1
       alignments:
       - alignment: 0
@@ -150,24 +137,20 @@ MonoBehaviour:
           v\xE9hicul\xE9 et qu'il manque un peu d'endurance. D'ailleurs, il va souvent
           devant les salles de sport pour se moquer des adh\xE9rents..."
       - alignment: 1
-        endingMessage: "Plus de musculation, de gymnastique ou m\xEAme de jogging
-          dans les parcs. Un super-individu malveillant terrorise les sportifs partout
-          en ville. Il aurait d\xE9clar\xE9 \"Les muscles c'est pour les faibles\"..."
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
   - theme: 5
     appreciations:
     - appreciation: 0
       alignments:
       - alignment: 0
-        endingMessage: "Un sourire charmeur, un corps d'athl\xE8te, mais qui est
-          donc ce nouveau d\xE9fenseur qui soul\xE8ve des super-fontes ? Du jour
-          au lendemain, il est arriv\xE9 pour nous proposer des s\xE9ances de coaching
-          personnalis\xE9e et arr\xEAter le crime dans le m\xEAme temps. Quel H\xE9ros
-          !"
+        endingMessage: "Un nouveau super-h\xE9ros est arriv\xE9 dans notre ville.
+          Hourra !"
       - alignment: 1
-        endingMessage: "Un fl\xE9au terrible s'abat sur notre ville, un super-criminel
-          s\xE8me le chaos. En plus de \xE7a, il est super-muscl\xE9, c'est un habitu\xE9
-          des salles de sport. Il veut r\xE9former l'activit\xE9 physique de tous
-          les citoyens et nous mettant au sport. Au secours !"
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
     - appreciation: 1
       alignments:
       - alignment: 0
@@ -186,138 +169,105 @@ MonoBehaviour:
     - appreciation: 0
       alignments:
       - alignment: 0
-        endingMessage: "Un sourire charmeur, un corps d'athl\xE8te, mais qui est
-          donc ce nouveau d\xE9fenseur qui soul\xE8ve des super-fontes ? Du jour
-          au lendemain, il est arriv\xE9 pour nous proposer des s\xE9ances de coaching
-          personnalis\xE9e et arr\xEAter le crime dans le m\xEAme temps. Quel H\xE9ros
-          !"
+        endingMessage: "Un nouveau super-h\xE9ros est arriv\xE9 dans notre ville.
+          Hourra !"
       - alignment: 1
-        endingMessage: "Un fl\xE9au terrible s'abat sur notre ville, un super-criminel
-          s\xE8me le chaos. En plus de \xE7a, il est super-muscl\xE9, c'est un habitu\xE9
-          des salles de sport. Il veut r\xE9former l'activit\xE9 physique de tous
-          les citoyens et nous mettant au sport. Au secours !"
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
     - appreciation: 1
       alignments:
       - alignment: 0
-        endingMessage: "Un myst\xE9rieux super-h\xE9ros \xE0 l'apparence fragile
-          a fait son apparition en ville. Il utilise ses pouvoirs pour r\xE9tablir
-          la paix parmi nous. En revanche, il n'intervient pas toujours tr\xE8s vite
-          surtout s'il est \xE0 longue distance. Il semblerait qu'il ne soit pas
-          v\xE9hicul\xE9 et qu'il manque un peu d'endurance. D'ailleurs, il va souvent
-          devant les salles de sport pour se moquer des adh\xE9rents..."
+        endingMessage: "Un nouveau super-h\xE9ros est arriv\xE9 dans notre ville.
+          Hourra !"
       - alignment: 1
-        endingMessage: "Plus de musculation, de gymnastique ou m\xEAme de jogging
-          dans les parcs. Un super-individu malveillant terrorise les sportifs partout
-          en ville. Il aurait d\xE9clar\xE9 \"Les muscles c'est pour les faibles\"..."
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
   - theme: 7
     appreciations:
     - appreciation: 0
       alignments:
       - alignment: 0
-        endingMessage: "Un sourire charmeur, un corps d'athl\xE8te, mais qui est
-          donc ce nouveau d\xE9fenseur qui soul\xE8ve des super-fontes ? Du jour
-          au lendemain, il est arriv\xE9 pour nous proposer des s\xE9ances de coaching
-          personnalis\xE9e et arr\xEAter le crime dans le m\xEAme temps. Quel H\xE9ros
-          !"
+        endingMessage: "Un nouveau super-h\xE9ros est arriv\xE9 dans notre ville.
+          Hourra !"
       - alignment: 1
-        endingMessage: "Un fl\xE9au terrible s'abat sur notre ville, un super-criminel
-          s\xE8me le chaos. En plus de \xE7a, il est super-muscl\xE9, c'est un habitu\xE9
-          des salles de sport. Il veut r\xE9former l'activit\xE9 physique de tous
-          les citoyens et nous mettant au sport. Au secours !"
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
     - appreciation: 1
       alignments:
       - alignment: 0
-        endingMessage: "Un myst\xE9rieux super-h\xE9ros \xE0 l'apparence fragile
-          a fait son apparition en ville. Il utilise ses pouvoirs pour r\xE9tablir
-          la paix parmi nous. En revanche, il n'intervient pas toujours tr\xE8s vite
-          surtout s'il est \xE0 longue distance. Il semblerait qu'il ne soit pas
-          v\xE9hicul\xE9 et qu'il manque un peu d'endurance. D'ailleurs, il va souvent
-          devant les salles de sport pour se moquer des adh\xE9rents..."
+        endingMessage: "Un nouveau super-h\xE9ros est arriv\xE9 dans notre ville.
+          Hourra !"
       - alignment: 1
-        endingMessage: "Plus de musculation, de gymnastique ou m\xEAme de jogging
-          dans les parcs. Un super-individu malveillant terrorise les sportifs partout
-          en ville. Il aurait d\xE9clar\xE9 \"Les muscles c'est pour les faibles\"..."
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
   - theme: 8
     appreciations:
     - appreciation: 0
       alignments:
       - alignment: 0
-        endingMessage: "Un sourire charmeur, un corps d'athl\xE8te, mais qui est
-          donc ce nouveau d\xE9fenseur qui soul\xE8ve des super-fontes ? Du jour
-          au lendemain, il est arriv\xE9 pour nous proposer des s\xE9ances de coaching
-          personnalis\xE9e et arr\xEAter le crime dans le m\xEAme temps. Quel H\xE9ros
-          !"
+        endingMessage: "Il semblerait que les services municipaux de la ville se
+          soient trouv\xE9 un nouvel alli\xE9. Ce personnage aux pouvoirs \xE9tranges
+          semble d\xE9cid\xE9 \xE0 faire de cette ville la meilleure du pays."
       - alignment: 1
-        endingMessage: "Un fl\xE9au terrible s'abat sur notre ville, un super-criminel
-          s\xE8me le chaos. En plus de \xE7a, il est super-muscl\xE9, c'est un habitu\xE9
-          des salles de sport. Il veut r\xE9former l'activit\xE9 physique de tous
-          les citoyens et nous mettant au sport. Au secours !"
+        endingMessage: "Trois semaines se sont \xE9coul\xE9es depuis que Metros a
+          d\xE9truit toute forme de vie en dehors de notre ch\xE8re ville. Nous vous
+          rappelons de ne pas quiter le centre-ville sous peine d'\xEAtre an\xE9anti."
     - appreciation: 1
       alignments:
       - alignment: 0
-        endingMessage: "Un myst\xE9rieux super-h\xE9ros \xE0 l'apparence fragile
-          a fait son apparition en ville. Il utilise ses pouvoirs pour r\xE9tablir
-          la paix parmi nous. En revanche, il n'intervient pas toujours tr\xE8s vite
-          surtout s'il est \xE0 longue distance. Il semblerait qu'il ne soit pas
-          v\xE9hicul\xE9 et qu'il manque un peu d'endurance. D'ailleurs, il va souvent
-          devant les salles de sport pour se moquer des adh\xE9rents..."
+        endingMessage: "Un nouveau super-h\xE9ros a fait son apparition dans les
+          campagnes environnantes. Alors qu'il purge chaque village de ses criminels,
+          le taux de criminalit\xE9 record de notre ville ne semple pas le pr\xE9occuper."
       - alignment: 1
-        endingMessage: "Plus de musculation, de gymnastique ou m\xEAme de jogging
-          dans les parcs. Un super-individu malveillant terrorise les sportifs partout
-          en ville. Il aurait d\xE9clar\xE9 \"Les muscles c'est pour les faibles\"..."
+        endingMessage: "Il semblerait qu'un homme dont les intentions sont encore
+          incertaines tente de d\xE9monter chaque lampadaire sur son chemin. IL ne
+          cesse de crier \"La nature doit reprendre ses droits!\""
   - theme: 9
     appreciations:
     - appreciation: 0
       alignments:
       - alignment: 0
-        endingMessage: "Un sourire charmeur, un corps d'athl\xE8te, mais qui est
-          donc ce nouveau d\xE9fenseur qui soul\xE8ve des super-fontes ? Du jour
-          au lendemain, il est arriv\xE9 pour nous proposer des s\xE9ances de coaching
-          personnalis\xE9e et arr\xEAter le crime dans le m\xEAme temps. Quel H\xE9ros
-          !"
+        endingMessage: "Il a le teint p\xE2le, il ne sort que la nuit, et il vide
+          le sang des criminels qu'il arr\xEAte. C'est un h\xE9ros mais... Quand
+          m\xEAme, c'est un vampire, fa\xEEtes attention !"
       - alignment: 1
-        endingMessage: "Un fl\xE9au terrible s'abat sur notre ville, un super-criminel
-          s\xE8me le chaos. En plus de \xE7a, il est super-muscl\xE9, c'est un habitu\xE9
-          des salles de sport. Il veut r\xE9former l'activit\xE9 physique de tous
-          les citoyens et nous mettant au sport. Au secours !"
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
     - appreciation: 1
       alignments:
       - alignment: 0
-        endingMessage: "Un myst\xE9rieux super-h\xE9ros \xE0 l'apparence fragile
-          a fait son apparition en ville. Il utilise ses pouvoirs pour r\xE9tablir
-          la paix parmi nous. En revanche, il n'intervient pas toujours tr\xE8s vite
-          surtout s'il est \xE0 longue distance. Il semblerait qu'il ne soit pas
-          v\xE9hicul\xE9 et qu'il manque un peu d'endurance. D'ailleurs, il va souvent
-          devant les salles de sport pour se moquer des adh\xE9rents..."
+        endingMessage: "Un nouveau super-h\xE9ros est arriv\xE9 dans notre ville.
+          Hourra !"
       - alignment: 1
-        endingMessage: "Plus de musculation, de gymnastique ou m\xEAme de jogging
-          dans les parcs. Un super-individu malveillant terrorise les sportifs partout
-          en ville. Il aurait d\xE9clar\xE9 \"Les muscles c'est pour les faibles\"..."
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
   - theme: 10
     appreciations:
     - appreciation: 0
       alignments:
       - alignment: 0
-        endingMessage: "Un sourire charmeur, un corps d'athl\xE8te, mais qui est
-          donc ce nouveau d\xE9fenseur qui soul\xE8ve des super-fontes ? Du jour
-          au lendemain, il est arriv\xE9 pour nous proposer des s\xE9ances de coaching
-          personnalis\xE9e et arr\xEAter le crime dans le m\xEAme temps. Quel H\xE9ros
-          !"
+        endingMessage: "Un nouveau super-h\xE9ros est arriv\xE9 dans notre ville.
+          Hourra !"
       - alignment: 1
-        endingMessage: "Un fl\xE9au terrible s'abat sur notre ville, un super-criminel
-          s\xE8me le chaos. En plus de \xE7a, il est super-muscl\xE9, c'est un habitu\xE9
-          des salles de sport. Il veut r\xE9former l'activit\xE9 physique de tous
-          les citoyens et nous mettant au sport. Au secours !"
+        endingMessage: "\"Je venais de quitter ma salle de bain, et je suis tomb\xE9e
+          nez \xE0 nez avec un individu masqu\xE9, j'ai eu tr\xE8s tr\xE8s peur,
+          mais il ne m'a pas attaqu\xE9e, il m'a dit \"vous n'avez pas \xE9teint
+          la lumi\xE8re de votre salle de bain\" puis il a TOUT DETRUIT, je ne sais
+          pas ce que je vais devenir...\" Ainsi disait une des nombreuses victimes
+          d'un tout nouveau super vilain apparu en ville. En attendant qu'il soit
+          retrouv\xE9, veillez \xE0 bien \xE9teindre vos lumi\xE8res !"
     - appreciation: 1
       alignments:
       - alignment: 0
-        endingMessage: "Un myst\xE9rieux super-h\xE9ros \xE0 l'apparence fragile
-          a fait son apparition en ville. Il utilise ses pouvoirs pour r\xE9tablir
-          la paix parmi nous. En revanche, il n'intervient pas toujours tr\xE8s vite
-          surtout s'il est \xE0 longue distance. Il semblerait qu'il ne soit pas
-          v\xE9hicul\xE9 et qu'il manque un peu d'endurance. D'ailleurs, il va souvent
-          devant les salles de sport pour se moquer des adh\xE9rents..."
+        endingMessage: "Un nouveau super-h\xE9ros est arriv\xE9 dans notre ville.
+          Hourra !"
       - alignment: 1
-        endingMessage: "Plus de musculation, de gymnastique ou m\xEAme de jogging
-          dans les parcs. Un super-individu malveillant terrorise les sportifs partout
-          en ville. Il aurait d\xE9clar\xE9 \"Les muscles c'est pour les faibles\"..."
+        endingMessage: "Un super-m\xE9chant est en train de d\xE9truire notre ville
+          ! Fuyez !                                                                                                              
+          Et d\xEEtes \xE0 ma m\xE8re que je l'aime !"
