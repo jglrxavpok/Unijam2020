@@ -11,8 +11,10 @@ public class AudioBox : MonoBehaviour
     [SerializeField]
     private AudioSource soundSource;
 
-    public float soundGlobalVolume = 1f;
-    public float musicGlobalVolume = 1f;
+    [SerializeField]
+    private float soundGlobalVolume = 1f;
+    [SerializeField]
+    private float musicGlobalVolume = 1f;
 
     private List<AudioSource> musicSources;
 
@@ -29,6 +31,21 @@ public class AudioBox : MonoBehaviour
 
     private void OnDestroy () {
         if(Instance == this) Instance = null;
+    }
+
+    public float SoundGlobalVolume {
+        get{return soundGlobalVolume;}
+        set{soundGlobalVolume = value;}
+    }
+
+    public float MusicGlobalVolume {
+        get{return musicGlobalVolume;}
+        set{
+            foreach(AudioSource source in musicSources){
+                source.volume = value;
+            }
+            musicGlobalVolume = value;
+        }
     }
 
     public void PlaySoundOneShot (SoundOneShot sound, float volume = 1f){
@@ -67,6 +84,15 @@ public class AudioBox : MonoBehaviour
         if(findSource){
             findSource.Stop();
             musicSources.Remove(findSource);
+            Destroy(findSource);
+        }
+    }
+
+    public void StopAllSoundLoop (){
+        foreach(AudioSource source in musicSources){
+            source.Stop();
+            musicSources.Remove(source);
+            Destroy(source);
         }
     }
 }

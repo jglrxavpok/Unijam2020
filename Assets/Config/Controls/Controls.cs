@@ -938,6 +938,39 @@ public class @Controls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""1D Axis"",
+                    ""id"": ""beec8f36-508c-47ce-96b8-9f3f4b4d40bc"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Switch Thought Type"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""1fd2047d-a13f-486a-8f5a-3413dc340715"",
+                    ""path"": ""<Keyboard>/#(Q)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Switch Thought Type"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""47d27318-0f15-4aab-82da-7a1d8910c059"",
+                    ""path"": ""<Keyboard>/#(D)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Switch Thought Type"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
                     ""id"": ""931f7369-a8ef-4261-9c76-a258b2df32d6"",
                     ""path"": ""1DAxis"",
                     ""interactions"": """",
