@@ -95,8 +95,8 @@ public class NPCMovement : MonoBehaviour {
         return realSpeed;
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.CompareTag("Wall")) {
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Wall")) {
             side *= -1;
             nbMove++;
             initialPosition = transform.position.x;

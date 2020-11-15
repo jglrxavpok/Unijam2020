@@ -178,8 +178,8 @@ MonoBehaviour:
   - content: "d'am\xE9liorer cette ville"
     feminineContent: "d'am\xE9liorer cette ville"
     positivity: 1
-  - content: "d'\xEAtre meilleur"
-    feminineContent: "d'\xEAtre meilleure"
+  - content: "de m'am\xE9liorer"
+    feminineContent: "de m'am\xE9liorer"
     positivity: 2
   - content: "de contr\xF4ler les autres"
     feminineContent: "de contr\xF4ler les autres"

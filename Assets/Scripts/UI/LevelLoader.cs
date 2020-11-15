@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -16,10 +17,19 @@ public class LevelLoader : MonoBehaviour
     public Animator animator;
 
     private string _level;
+
+    [SerializeField] private GameObject defaultSelection;
+    
     private void Start()
     {
         InputManager.Input.UI.Cancel.performed += Back;
         AudioBox.Instance.PlaySoundLoop(SoundLoop.MainMenu);
+    }
+
+    private void Update() {
+        if (EventSystem.current.currentSelectedGameObject == null) {
+            EventSystem.current.SetSelectedGameObject(defaultSelection);
+        }
     }
 
     private void Back(InputAction.CallbackContext ctx)

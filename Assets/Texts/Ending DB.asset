@@ -46,29 +46,29 @@ MonoBehaviour:
     - appreciation: 0
       alignments:
       - alignment: 0
-        endingMessage: "Un sourire charmeur, un corps d'athl\xE8te, mais qui est
-          donc ce nouveau d\xE9fenseur qui soul\xE8ve des super-fontes ? Du jour
-          au lendemain, il est arriv\xE9 pour nous proposer des s\xE9ances de coaching
-          personnalis\xE9e et arr\xEAter le crime dans le m\xEAme temps. Quel H\xE9ros
-          !"
+        endingMessage: "Mr. Justice ! C'est ainsi que se fait appeler le nouveau
+          h\xE9ros en ville. Il arr\xEAte les criminels, les juge, les d\xE9fend,
+          prononce une sentence puis les envoie en prison. Un tel amour de la justice
+          \xE7a ne s'invente pas !"
       - alignment: 1
-        endingMessage: "Un fl\xE9au terrible s'abat sur notre ville, un super-criminel
-          s\xE8me le chaos. En plus de \xE7a, il est super-muscl\xE9, c'est un habitu\xE9
-          des salles de sport. Il veut r\xE9former l'activit\xE9 physique de tous
-          les citoyens et nous mettant au sport. Au secours !"
+        endingMessage: "Un dangereux super-villain s'est r\xE9v\xE9l\xE9 aujourd'hui
+          ! Restez chez vous autant que possible et barricadez vous. Il n'h\xE9site
+          pas \xE0 faire usage de la violence. Attendez... On m'informe \xE0 l'instant
+          qu'il s'est rendu ! Apparemment il voue un profond amour \xE0 la justice...
+          Fausse Alerte !"
     - appreciation: 1
       alignments:
       - alignment: 0
-        endingMessage: "Un myst\xE9rieux super-h\xE9ros \xE0 l'apparence fragile
-          a fait son apparition en ville. Il utilise ses pouvoirs pour r\xE9tablir
-          la paix parmi nous. En revanche, il n'intervient pas toujours tr\xE8s vite
-          surtout s'il est \xE0 longue distance. Il semblerait qu'il ne soit pas
-          v\xE9hicul\xE9 et qu'il manque un peu d'endurance. D'ailleurs, il va souvent
-          devant les salles de sport pour se moquer des adh\xE9rents..."
+        endingMessage: "Tous les criminels de la ville ont \xE9t\xE9 lib\xE9r\xE9s
+          ! Mais pas d'inqui\xE9tude, il ne font pas de ravage. C'est un h\xE9ros
+          qui les a sorti de prison et il veille \xE0 ce que la paix continue de
+          r\xE9gner. C'est juste qu'il a un probl\xE8me avec nos institutions de
+          justice... Il arr\xEAte les d\xE9linquants pour les lib\xE9rer juste apr\xE8s.
+          Quel \xE9trange h\xE9ros !"
       - alignment: 1
-        endingMessage: "Plus de musculation, de gymnastique ou m\xEAme de jogging
-          dans les parcs. Un super-individu malveillant terrorise les sportifs partout
-          en ville. Il aurait d\xE9clar\xE9 \"Les muscles c'est pour les faibles\"..."
+        endingMessage: "Les tribunaux sont pris d'assaut. Prenez garde \xE0 vous
+          si vous \xEAtes avocats, juges ou m\xEAme si vous aimez dire \"objection\".
+          Il est sans piti\xE9, un v\xE9ritable anarchiste."
   - theme: 2
     appreciations:
     - appreciation: 0
